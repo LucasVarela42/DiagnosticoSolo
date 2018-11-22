@@ -32,6 +32,7 @@ export class AdubacaoService {
   }
 
   public delete(body: any): Observable<boolean> {
+    console.log(body);
     return this.http.request('delete', `${this.api}`, { body }).map((response: boolean) => response);
   }
 

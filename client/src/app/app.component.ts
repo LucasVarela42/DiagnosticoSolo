@@ -18,5 +18,5 @@ import 'rxjs/add/operator/switchMap';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'client';
+  title = 'Diagnóstico de Solo';
 }

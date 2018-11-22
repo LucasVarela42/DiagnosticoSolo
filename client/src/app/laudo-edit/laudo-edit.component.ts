@@ -24,7 +24,6 @@ export class LaudoEditComponent implements OnInit, OnDestroy {
         this.adubacaoService.get(id).subscribe((laudo: any) => {
           if (laudo) {
             this.laudo = laudo;
-            this.laudo.href = laudo._links.self.href;
           } else {
             console.log(`Car with id '${id}' not found, returning to list`);
             this.gotoList();

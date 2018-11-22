@@ -1,13 +1,48 @@
-<mat-card>
-    <mat-card-title>Lista de laudos</mat-card-title>
-    <mat-card-content>
-      <mat-list>
-        <mat-list-item *ngFor="let laudo of laudos">
-          <h3 mat-line>
-            <a mat-button [routerLink]="['/laudo-edit', laudo.id]">{{laudo.nome}}</a>
-          </h3>
-        </mat-list-item>
-      </mat-list>
-    </mat-card-content>
-    <button mat-fab color="primary" [routerLink]="['/laudo-add']">Add</button>
-  </mat-card>
+
+<div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="end stretch" class="controles">
+  <button mat-flat-button color="primary" (click)="create()">Adicionar</button>
+</div>
+
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch" class="adubacoes">
+  <table mat-table fxFlex="100%" fxFlex.gt-sm="100%" [dataSource]="dataSource" class="mat-elevation-z1">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let adubacao"> {{adubacao.laudo.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nome" sticky>
+      <th mat-header-cell *matHeaderCellDef> Titulo do Laudo</th>
+      <td mat-cell *matCellDef="let adubacao"> {{adubacao.laudo.nome}}</td>
+    </ng-container>
+    
+    <ng-container matColumnDef="responsavel">
+      <th mat-header-cell *matHeaderCellDef> Responsavel</th>
+      <td mat-cell *matCellDef="let adubacao"> {{adubacao.laudo.responsavel}}</td>
+    </ng-container>
+    
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let adubacao">
+        <button mat-icon-button (click)="edit(adubacao)">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let adubacao">
+        <button mat-icon-button (click)="delete(adubacao)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+<div>
+
+<div class="loading" *ngIf="loading">
+  <mat-spinner></mat-spinner>
+</div>

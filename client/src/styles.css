@@ -5,3 +5,11 @@ body {
   margin: 0;
   font-family: Roboto, sans-serif;
 }
+
+.expanded-toolbar {
+  justify-content: space-between;
+}
+
+h1 {
+  text-align: center;
+}

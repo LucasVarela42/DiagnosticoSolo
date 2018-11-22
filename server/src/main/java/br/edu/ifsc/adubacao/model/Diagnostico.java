@@ -100,7 +100,7 @@ public class Diagnostico {
     public void calcularQuantidadeCalcario(double nc){
         double qc = (( (nc*1.5) * 100) / 0.9) / 100;
         String result = new DecimalFormat("#.00").format(qc);
-        quantidadceCalcario = Double.valueOf(result);
+        quantidadceCalcario = qc;
     }
 
     @Override
