@@ -1,0 +1,13 @@
+<mat-card>
+    <mat-card-title>Lista de laudos</mat-card-title>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let laudo of laudos">
+          <h3 mat-line>
+            <a mat-button [routerLink]="['/laudo-edit', laudo.id]">{{laudo.nome}}</a>
+          </h3>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+    <button mat-fab color="primary" [routerLink]="['/laudo-add']">Add</button>
+  </mat-card>

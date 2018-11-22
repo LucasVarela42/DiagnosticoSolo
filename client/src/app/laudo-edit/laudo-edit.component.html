@@ -1,0 +1,23 @@
+<mat-card>
+  <form #laudoForm="ngForm" (ngSubmit)="save(laudoForm.value)">
+    <mat-card-header>
+      <mat-card-title><h2>{{laudo.nome ? 'Edit' : 'Add'}} laudo</h2></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <input type="hidden" name="href" [(ngModel)]="laudo.href">
+      <mat-form-field>
+        <input matInput placeholder="Nome do responsavel" [(ngModel)]="laudo.nome"
+               required name="nome" #name>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-footer>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit"
+                    [disabled]="!laudoForm.form.valid">Save</button>
+            <button mat-raised-button color="secondary" (click)="remove(laudo.href)"
+                    *ngIf="laudo.href" type="button">Delete</button>
+            <a mat-button routerLink="/laudo-list">Cancel</a>
+          </mat-card-actions>
+    </mat-card-footer>
+  </form>
+</mat-card>
