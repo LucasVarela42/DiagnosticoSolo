@@ -14,6 +14,7 @@ export class LaudoListComponent implements OnInit {
   ngOnInit() {
     this.adubacaoService.getAll().subscribe(data => {
       this.laudos = data;
+      console.log(this.laudos);
     });
   }
 

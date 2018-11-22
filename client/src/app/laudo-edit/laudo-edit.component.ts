@@ -42,16 +42,4 @@ export class LaudoEditComponent implements OnInit, OnDestroy {
     this.router.navigate(['/laudo-list']);
   }
 
-  save(form: NgForm) {
-    this.adubacaoService.save(form).subscribe(result => {
-      this.gotoList();
-    }, error => console.error(error));
-  }
-
-  remove(href) {
-    this.adubacaoService.remove(href).subscribe(result => {
-      this.gotoList();
-    }, error => console.error(error));
-  }
-
 }

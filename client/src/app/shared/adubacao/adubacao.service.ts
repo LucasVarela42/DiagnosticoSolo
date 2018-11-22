@@ -1,31 +1,38 @@
+import { Diagnostico } from './adubacao.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+const baseUrl = '//localhost:8080/';
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class AdubacaoService {
-  public API = '//localhost:8080/api';
-  public ADUBACAO_API = this.API + '/adubacoes';
-  constructor(private http: HttpClient) { }
+  private api: string;
+  constructor(private http: HttpClient) {
+    this.api = `${baseUrl}api/adubacoes`;
+   }
 
   getAll(): Observable<any> {
-    return this.http.get(this.API + '/adubacoes');
+    return this.http.get(`${this.api}`).map((response: any) => response);
   }
-  get(id: string) {
-    return this.http.get(this.ADUBACAO_API + '/' + id);
+
+  public get(id: number): Observable<Diagnostico> {
+    return this.http.get(`${this.api}/${id}`).map((response: Diagnostico) => response);
   }
-  save(laudo: any): Observable<any> {
-    let result: Observable<Object>;
-    if (laudo['href']) {
-      result = this.http.put(laudo.href, laudo);
-    } else {
-      result = this.http.post(this.ADUBACAO_API, laudo);
-    }
-    return result;
+
+  public add(diagnostico: Diagnostico): Observable<boolean> {
+    return this.http.post(this.api, diagnostico).map((response: boolean) => response);
   }
-  remove(href: string) {
-    return this.http.delete(href);
+
+  public update(diagnostico: Diagnostico): Observable<boolean> {
+    return this.http.put(this.api, diagnostico).map((response: boolean) => response);
   }
+
+  public delete(body: any): Observable<boolean> {
+    return this.http.request('delete', `${this.api}`, { body }).map((response: boolean) => response);
+  }
+
 }
