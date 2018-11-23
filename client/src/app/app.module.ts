@@ -9,15 +9,16 @@ import { MatButtonModule,
   MatCardModule,
   MatInputModule,
   MatListModule,
-  MatDividerModule,
   MatIconModule,
   MatMenuModule,
   MatProgressSpinnerModule,
   MatTableModule,
-  MatToolbarModule } from '@angular/material';
+  MatToolbarModule,
+  MatFormFieldModule,
+  MatGridListModule} from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { LaudoListComponent } from './laudo-list/laudo-list.component';
 import { LaudoEditComponent } from './laudo-edit/laudo-edit.component';
@@ -33,18 +34,19 @@ import { LaudoEditComponent } from './laudo-edit/laudo-edit.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
+    FlexLayoutModule,
     MatButtonModule,
     MatCardModule,
     MatInputModule,
     MatListModule,
     MatToolbarModule,
-    FormsModule,
-    FlexLayoutModule,
+    MatFormFieldModule,
     MatMenuModule,
     MatIconModule,
     MatTableModule,
-    MatDividerModule,
     MatProgressSpinnerModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

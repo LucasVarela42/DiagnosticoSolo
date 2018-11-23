@@ -1,44 +1,53 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { AdubacaoService } from '../shared/adubacao/adubacao.service';
+import { Laudo } from '../shared/adubacao/adubacao.model';
 
 @Component({
   selector: 'app-laudo-edit',
   templateUrl: './laudo-edit.component.html',
   styleUrls: ['./laudo-edit.component.css']
 })
-export class LaudoEditComponent implements OnInit, OnDestroy {
-  laudo: any = {};
-  sub: Subscription;
+export class LaudoEditComponent {
+  public static MIN_VALUE = 0;
+  public title = 'Cadastrar Laudo';
+  public form: FormGroup = this.fb.group({
+    nome: ['', Validators.required],
+    responsavel: ['', Validators.required],
+    argila: ['', [Validators.required, Validators.min(LaudoEditComponent.MIN_VALUE)]],
+    pH: ['', [Validators.required, Validators.min(LaudoEditComponent.MIN_VALUE)]],
+    pHReferencia: ['', [Validators.required, Validators.min(LaudoEditComponent.MIN_VALUE)]],
+    indiceSMP: ['', [Validators.required, Validators.min(LaudoEditComponent.MIN_VALUE)]],
+    fosforoP: ['', [Validators.required, Validators.min(LaudoEditComponent.MIN_VALUE)]],
+    potassioK: ['', [Validators.required, Validators.min(LaudoEditComponent.MIN_VALUE)]],
+    materiaOrganicaMO: ['', [Validators.required, Validators.min(LaudoEditComponent.MIN_VALUE)]],
+    aluminioTrocavelAlTroc: ['', [Validators.required, Validators.min(LaudoEditComponent.MIN_VALUE)]],
+    calcioTrocavelCaTroc: ['', [Validators.required, Validators.min(LaudoEditComponent.MIN_VALUE)]],
+    magnesioTrocavelMgTroc: ['', [Validators.required, Validators.min(LaudoEditComponent.MIN_VALUE)]],
+    aluminioHidrogenioALplusH: ['', [Validators.required, Validators.min(LaudoEditComponent.MIN_VALUE)]],
+    CTC: ['', [Validators.required, Validators.min(LaudoEditComponent.MIN_VALUE)]],
+    saturacaoCTC: ['', [Validators.required, Validators.min(LaudoEditComponent.MIN_VALUE)]],
+    relacaoCaMg: ['', [Validators.required, Validators.min(LaudoEditComponent.MIN_VALUE)]],
+    relacaoCaK: ['', [Validators.required, Validators.min(LaudoEditComponent.MIN_VALUE)]],
+    relacaoMgK: ['', [Validators.required, Validators.min(LaudoEditComponent.MIN_VALUE)]],
+  });
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private adubacaoService: AdubacaoService) { }
+      private service: AdubacaoService,
+      private fb: FormBuilder,
+      private router: Router,
+      private route: ActivatedRoute) { }
 
-  ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-      const id = params['id'];
-      if (id) {
-        this.adubacaoService.get(id).subscribe((laudo: any) => {
-          if (laudo) {
-            this.laudo = laudo;
-          } else {
-            console.log(`Car with id '${id}' not found, returning to list`);
-            this.gotoList();
-          }
-        });
-      }
-    });
+  public onSubmit(): void {
+      const laudoAdd: Laudo = new Laudo(this.form.value);
+      this.service.add(laudoAdd)
+          .take(1)
+          .do(() => this.redirect())
+          .subscribe((res: boolean) => res);
   }
-
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
-
-  gotoList() {
-    this.router.navigate(['/laudo-list']);
+  private redirect(): void {
+      this.router.navigate(['/laudo-view']);
   }
 
 }

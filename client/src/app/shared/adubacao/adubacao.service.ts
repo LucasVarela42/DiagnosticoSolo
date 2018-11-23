@@ -1,4 +1,4 @@
-import { Diagnostico } from './adubacao.model';
+import { Diagnostico, Laudo } from './adubacao.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -23,8 +23,8 @@ export class AdubacaoService {
     return this.http.get(`${this.api}/${id}`).map((response: Diagnostico) => response);
   }
 
-  public add(diagnostico: Diagnostico): Observable<boolean> {
-    return this.http.post(this.api, diagnostico).map((response: boolean) => response);
+  public add(laudo: Laudo): Observable<boolean> {
+    return this.http.post(this.api, laudo).map((response: boolean) => response);
   }
 
   public update(diagnostico: Diagnostico): Observable<boolean> {
