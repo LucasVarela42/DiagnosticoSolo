@@ -1,0 +1,118 @@
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar class="card-header-image">
+      <mat-icon>note</mat-icon>
+    </div>
+    <mat-card-title>{{diagnostico?.laudo.nome}}</mat-card-title>
+    <mat-card-subtitle>{{diagnostico?.laudo.responsavel}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="card-content">
+
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between">
+      <div fxFlex="100%">
+        <mat-expansion-panel class="mat-elevation-z0" [expanded]="0">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Dados cadastrais do Laudo
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
+            <div fxFlex="20%">
+              <p>Argila</p>
+              {{diagnostico?.laudo.argila}}
+            </div>
+            <div fxFlex="20%">
+              <p>pH</p>
+              {{diagnostico?.laudo.pH}}
+            </div>
+            <div fxFlex="20%">
+              <p>indiceSMP</p>
+              {{diagnostico?.laudo.indiceSMP}}
+            </div>
+            <div fxFlex="20%">
+              <p>fosforoP</p>
+              {{diagnostico?.laudo.fosforoP}}
+            </div>
+            <div fxFlex="20%">
+              <p>potassioK</p>
+              {{diagnostico?.laudo.potassioK}}
+            </div>
+          </div>
+
+          <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
+            <div fxFlex="20%">
+              <p>materiaOrganicaMO</p>
+              {{diagnostico?.laudo.materiaOrganicaMO}}
+            </div>
+            <div fxFlex="20%">
+              <p>aluminioTrocavelAlTroc</p>
+              {{diagnostico?.laudo.aluminioTrocavelAlTroc}}
+            </div>
+            <div fxFlex="20%">
+              <p>calcioTrocavelCaTroc</p>
+              {{diagnostico?.laudo.calcioTrocavelCaTroc}}
+            </div>
+            <div fxFlex="20%">
+              <p>magnesioTrocavelMgTroc</p>
+              {{diagnostico?.laudo.magnesioTrocavelMgTroc}}
+            </div>
+            <div fxFlex="20%">
+              <p>aluminioHidrogenioALplusH</p>
+              {{diagnostico?.laudo.aluminioHidrogenioALplusH}}
+            </div>
+          </div>
+
+          <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
+            <div fxFlex="20%">
+              <p>ctc</p>
+              {{diagnostico?.laudo.ctc}}
+            </div>
+            <div fxFlex="20%">
+              <p>saturacaoCTC</p>
+              {{diagnostico?.laudo.saturacaoCTC}}
+            </div>
+            <div fxFlex="20%">
+              <p>relacaoCaMg</p>
+              {{diagnostico?.laudo.relacaoCaMg}}
+            </div>
+            <div fxFlex="20%">
+              <p>relacaoCaK</p>
+              {{diagnostico?.laudo.relacaoCaK}}
+            </div>
+            <div fxFlex="20%">
+              <p>relacaoMgK</p>
+              {{diagnostico?.laudo.relacaoMgK}}
+            </div>
+            <div fxFlex="20%">
+              <p>pHReferencia</p>
+              {{diagnostico?.laudo.pHReferencia}}
+            </div>
+          </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel class="mat-elevation-z0">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Diagnosticos do Laudo
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
+              <div fxFlex="50%">
+                <p>Quantidade de calcario</p>
+                {{diagnostico?.quantidadeCalcario}}
+              </div>
+              <div fxFlex="50%">
+                <p>Quantidade de calcario</p>
+                {{diagnostico?.quantidadeCalcario}}
+              </div>
+            </div>
+        </mat-expansion-panel>
+      </div>
+    </div>
+
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button>Editar</button>
+    <button mat-button (click)="redirect()">Voltar</button>
+  </mat-card-actions>
+</mat-card>

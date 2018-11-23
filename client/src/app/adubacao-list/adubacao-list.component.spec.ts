@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LaudoEditComponent } from './laudo-edit.component';
+import { AdubacaoListComponent } from './adubacao-list.component';
 
-describe('LaudoEditComponent', () => {
-  let component: LaudoEditComponent;
-  let fixture: ComponentFixture<LaudoEditComponent>;
+describe('AdubacaoListComponent', () => {
+  let component: AdubacaoListComponent;
+  let fixture: ComponentFixture<AdubacaoListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LaudoEditComponent ]
+      declarations: [ AdubacaoListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LaudoEditComponent);
+    fixture = TestBed.createComponent(AdubacaoListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

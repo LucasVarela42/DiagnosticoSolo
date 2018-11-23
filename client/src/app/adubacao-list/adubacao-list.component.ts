@@ -4,19 +4,18 @@ import { MatTableDataSource } from '@angular/material';
 import { Diagnostico } from '../shared/adubacao/adubacao.model';
 import { Router } from '@angular/router';
 @Component({
-  selector: 'app-laudo-list',
-  templateUrl: './laudo-list.component.html',
-  styleUrls: ['./laudo-list.component.css']
+  selector: 'app-adubacao-list',
+  templateUrl: './adubacao-list.component.html',
+  styleUrls: ['./adubacao-list.component.css']
 })
-export class LaudoListComponent implements OnInit {
+export class AdubacaoListComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'nome', 'responsavel', 'edit', 'delete'];
+  displayedColumns: string[] = ['id', 'nome', 'responsavel', 'open', 'edit', 'delete'];
   dataSource = new MatTableDataSource<any>();
   selected: Diagnostico = new Diagnostico();
   loading = false;
 
   constructor(private adubacaoService: AdubacaoService, private router: Router) { }
-
   ngOnInit() {
     this.refresh();
   }
@@ -31,18 +30,22 @@ export class LaudoListComponent implements OnInit {
   }
 
   create() {
-    this.router.navigate(['/laudo-add']);
+    this.router.navigate(['/adubacao-add']);
   }
 
   edit(diagnostico: Diagnostico) {
     this.selected = diagnostico;
-    this.router.navigate(['/laudo-edit', this.selected.id]);
+    this.router.navigate(['/adubacao-edit', this.selected.id]);
   }
 
-  async delete(diagnostico: Diagnostico) {
-    this.loading = true;
-    if (confirm(`Tem certeza que deseja excluir o laudo ${diagnostico.laudo.nome}?`)) {
-      this.adubacaoService.delete(diagnostico.id);
+  open(diagnostico: Diagnostico) {
+    this.selected = diagnostico;
+    this.router.navigate(['/adubacao-detail', this.selected.id]);
+  }
+
+  async delete(adubacao: Diagnostico) {
+    if (confirm(`Tem certeza que deseja excluir o Laudo ${adubacao.laudo.nome}?`)) {
+      this.adubacaoService.delete(adubacao.id);
     }
     await this.refresh();
   }

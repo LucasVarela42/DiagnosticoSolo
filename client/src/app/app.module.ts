@@ -15,19 +15,24 @@ import { MatButtonModule,
   MatTableModule,
   MatToolbarModule,
   MatFormFieldModule,
-  MatGridListModule} from '@angular/material';
+  MatGridListModule,
+  MatExpansionModule} from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { LaudoListComponent } from './laudo-list/laudo-list.component';
-import { LaudoEditComponent } from './laudo-edit/laudo-edit.component';
+import { AdubacaoListComponent } from './adubacao-list/adubacao-list.component';
+import { AdubacaoAddComponent } from './adubacao-add/adubacao-add.component';
+import { AdubacaoDetailComponent } from './adubacao-detail/adubacao-detail.component';
+import { AdubacaoEditComponent } from './adubacao-edit/adubacao-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LaudoListComponent,
-    LaudoEditComponent
+    AdubacaoListComponent,
+    AdubacaoAddComponent,
+    AdubacaoDetailComponent,
+    AdubacaoEditComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +52,7 @@ import { LaudoEditComponent } from './laudo-edit/laudo-edit.component';
     MatTableModule,
     MatProgressSpinnerModule,
     MatGridListModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

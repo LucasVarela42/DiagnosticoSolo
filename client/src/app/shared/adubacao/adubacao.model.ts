@@ -14,7 +14,7 @@ export class Laudo {
     public calcioTrocavelCaTroc: number;
     public magnesioTrocavelMgTroc: number;
     public aluminioHidrogenioALplusH: number;
-    public CTC: number;
+    public ctc: number;
     public saturacaoCTC: number;
     public relacaoCaMg: number;
     public relacaoCaK: number;
@@ -35,7 +35,7 @@ export class Laudo {
         this.calcioTrocavelCaTroc = laudo.calcioTrocavelCaTroc;
         this.magnesioTrocavelMgTroc = laudo.magnesioTrocavelMgTroc;
         this.aluminioHidrogenioALplusH = laudo.aluminioHidrogenioALplusH;
-        this.CTC = laudo.CTC;
+        this.ctc = laudo.ctc;
         this.saturacaoCTC = laudo.saturacaoCTC;
         this.relacaoCaMg = laudo.relacaoCaMg;
         this.relacaoCaK = laudo.relacaoCaK;

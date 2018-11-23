@@ -1,22 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { LaudoListComponent } from './laudo-list/laudo-list.component';
-import { LaudoEditComponent } from './laudo-edit/laudo-edit.component';
+import { AdubacaoListComponent } from './adubacao-list/adubacao-list.component';
+import { AdubacaoAddComponent } from './adubacao-add/adubacao-add.component';
+import { AdubacaoDetailComponent } from './adubacao-detail/adubacao-detail.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/laudo-list', pathMatch: 'full' },
+  { path: '', redirectTo: '/adubacao-list', pathMatch: 'full' },
   {
-    path: 'laudo-list',
-    component: LaudoListComponent
+    path: 'adubacao-list',
+    component: AdubacaoListComponent
   },
   {
-    path: 'laudo-add',
-    component: LaudoEditComponent
+    path: 'adubacao-add',
+    component: AdubacaoAddComponent
   },
   {
-    path: 'laudo-edit/:id',
-    component: LaudoEditComponent
+    path: 'adubacao-edit/:id',
+    component: AdubacaoAddComponent
+  }
+  {
+    path: 'adubacao-detail/:id',
+    component: AdubacaoDetailComponent
   }
 ];
 
