@@ -19,26 +19,26 @@ public class Diagnostico {
     private Laudo laudo;
 
     @Column(name = "faixa_acidez")
-    private double faixaAzidez;
+    private double faixaAcidez;
     @Column(name = "tipo_calcario")
     private int tipoCalcario;
     @Column(name = "quantidade_calcario")
-    private double quantidadceCalcario;
+    private double quantidadeCalcario;
     @Column(name = "finalidade_adubacao")
     private int finalidadeAdubacao;
     @Column(name = "recomendacao")
     private String recomendacao;
 
-    public Diagnostico(Laudo laudo, double faixaAzidez, int tipoCalcario, double quantidadceCalcario, int finalidadeAdubacao, String recomendacao) {
-        this.laudo = laudo;
-        this.faixaAzidez = faixaAzidez;
-        this.tipoCalcario = tipoCalcario;
-        this.quantidadceCalcario = quantidadceCalcario;
-        this.finalidadeAdubacao = finalidadeAdubacao;
-        this.recomendacao = recomendacao;
+    public Diagnostico() {
     }
 
-    public Diagnostico() {
+    public Diagnostico(Laudo laudo, double faixaAcidez, int tipoCalcario, double quantidadeCalcario, int finalidadeAdubacao, String recomendacao) {
+        this.laudo = laudo;
+        this.faixaAcidez = faixaAcidez;
+        this.tipoCalcario = tipoCalcario;
+        this.quantidadeCalcario = quantidadeCalcario;
+        this.finalidadeAdubacao = finalidadeAdubacao;
+        this.recomendacao = recomendacao;
     }
 
     public int getId() {
@@ -49,12 +49,20 @@ public class Diagnostico {
         this.id = id;
     }
 
-    public double getFaixaAzidez() {
-        return faixaAzidez;
+    public Laudo getLaudo() {
+        return laudo;
     }
 
-    public void setFaixaAzidez(double faixaAzidez) {
-        this.faixaAzidez = faixaAzidez;
+    public void setLaudo(Laudo laudo) {
+        this.laudo = laudo;
+    }
+
+    public double getFaixaAcidez() {
+        return faixaAcidez;
+    }
+
+    public void setFaixaAcidez(double faixaAcidez) {
+        this.faixaAcidez = faixaAcidez;
     }
 
     public int getTipoCalcario() {
@@ -65,12 +73,12 @@ public class Diagnostico {
         this.tipoCalcario = tipoCalcario;
     }
 
-    public double getQuantidadceCalcario() {
-        return quantidadceCalcario;
+    public double getQuantidadeCalcario() {
+        return quantidadeCalcario;
     }
 
-    public void setQuantidadceCalcario(double quantidadceCalcario) {
-        this.quantidadceCalcario = quantidadceCalcario;
+    public void setQuantidadeCalcario(double quantidadeCalcario) {
+        this.quantidadeCalcario = quantidadeCalcario;
     }
 
     public int getFinalidadeAdubacao() {
@@ -89,27 +97,18 @@ public class Diagnostico {
         this.recomendacao = recomendacao;
     }
 
-    public Laudo getLaudo() {
-        return laudo;
-    }
-
-    public void setLaudo(Laudo laudo) {
-        this.laudo = laudo;
-    }
-
     public void calcularQuantidadeCalcario(double nc){
-        double qc = (( (nc*1.5) * 100) / 0.9) / 100;
-        String result = new DecimalFormat("#.00").format(qc);
-        quantidadceCalcario = qc;
+        quantidadeCalcario = (( (nc*1.5) * 100) / 0.9) / 100;
     }
 
     @Override
     public String toString() {
         return "Diagnostico{" +
                 "id=" + id +
-                ", faixaAzidez=" + faixaAzidez +
+                ", laudo=" + laudo +
+                ", faixaAcidez=" + faixaAcidez +
                 ", tipoCalcario=" + tipoCalcario +
-                ", quantidadceCalcario=" + quantidadceCalcario +
+                ", quantidadeCalcario=" + quantidadeCalcario +
                 ", finalidadeAdubacao=" + finalidadeAdubacao +
                 ", recomendacao='" + recomendacao + '\'' +
                 '}';

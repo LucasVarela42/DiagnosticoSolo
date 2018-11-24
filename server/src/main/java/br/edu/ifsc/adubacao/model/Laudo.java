@@ -29,8 +29,6 @@ public class Laudo {
     private double argila;
     @Column(name = "ph")
     private double pH;
-    @Column(name = "ph_referencia")
-    private double pHReferencia;
     @Column(name = "indice_smp")
     private double indiceSMP;
     @Column(name = "fosforo_p")
@@ -50,8 +48,10 @@ public class Laudo {
     private double aluminioHidrogenioALplusH;
     @Column(name = "ctc")
     private double CTC;
-    @Column(name = "saturacao_ctc")
-    private double saturacaoCTC;
+    @Column(name = "saturacao_ctc_base")
+    private double saturacaoCTCBase;
+    @Column(name = "saturacao_ctc_al")
+    private double saturacaoCTCAl;
     @Column(name = "relacao_ca_mg")
     private double relacaoCaMg;
     @Column(name = "relacao_ca_k")
@@ -59,16 +59,18 @@ public class Laudo {
     @Column(name = "relacao_mg_k")
     private double relacaoMgK;
 
+    @Column(name = "ph_referencia")
+    private double pHReferencia;
+
     public Laudo() {
     }
 
-    public Laudo(String nome, @NotNull String responsavel, Diagnostico diagnostico, double argila, double pH, double pHReferencia, double indiceSMP, double fosforoP, double potassioK, double materiaOrganicaMO, double aluminioTrocavelAlTroc, double calcioTrocavelCaTroc, double magnesioTrocavelMgTroc, double aluminioHidrogenioALplusH, double CTC, double saturacaoCTC, double relacaoCaMg, double relacaoCaK, double relacaoMgK) {
+    public Laudo(String nome, @NotNull String responsavel, Diagnostico diagnostico, double argila, double pH, double indiceSMP, double fosforoP, double potassioK, double materiaOrganicaMO, double aluminioTrocavelAlTroc, double calcioTrocavelCaTroc, double magnesioTrocavelMgTroc, double aluminioHidrogenioALplusH, double CTC, double saturacaoCTCBase, double saturacaoCTCAl, double relacaoCaMg, double relacaoCaK, double relacaoMgK, double pHReferencia) {
         this.nome = nome;
         this.responsavel = responsavel;
         this.diagnostico = diagnostico;
         this.argila = argila;
         this.pH = pH;
-        this.pHReferencia = pHReferencia;
         this.indiceSMP = indiceSMP;
         this.fosforoP = fosforoP;
         this.potassioK = potassioK;
@@ -78,10 +80,12 @@ public class Laudo {
         this.magnesioTrocavelMgTroc = magnesioTrocavelMgTroc;
         this.aluminioHidrogenioALplusH = aluminioHidrogenioALplusH;
         this.CTC = CTC;
-        this.saturacaoCTC = saturacaoCTC;
+        this.saturacaoCTCBase = saturacaoCTCBase;
+        this.saturacaoCTCAl = saturacaoCTCAl;
         this.relacaoCaMg = relacaoCaMg;
         this.relacaoCaK = relacaoCaK;
         this.relacaoMgK = relacaoMgK;
+        this.pHReferencia = pHReferencia;
     }
 
     public int getId() {
@@ -131,14 +135,6 @@ public class Laudo {
 
     public void setpH(double pH) {
         this.pH = pH;
-    }
-
-    public double getpHReferencia() {
-        return pHReferencia;
-    }
-
-    public void setpHReferencia(double pHReferencia) {
-        this.pHReferencia = pHReferencia;
     }
 
     public double getIndiceSMP() {
@@ -213,12 +209,20 @@ public class Laudo {
         this.CTC = CTC;
     }
 
-    public double getSaturacaoCTC() {
-        return saturacaoCTC;
+    public double getSaturacaoCTCBase() {
+        return saturacaoCTCBase;
     }
 
-    public void setSaturacaoCTC(double saturacaoCTC) {
-        this.saturacaoCTC = saturacaoCTC;
+    public void setSaturacaoCTCBase(double saturacaoCTCBase) {
+        this.saturacaoCTCBase = saturacaoCTCBase;
+    }
+
+    public double getSaturacaoCTCAl() {
+        return saturacaoCTCAl;
+    }
+
+    public void setSaturacaoCTCAl(double saturacaoCTCAl) {
+        this.saturacaoCTCAl = saturacaoCTCAl;
     }
 
     public double getRelacaoCaMg() {
@@ -245,6 +249,14 @@ public class Laudo {
         this.relacaoMgK = relacaoMgK;
     }
 
+    public double getpHReferencia() {
+        return pHReferencia;
+    }
+
+    public void setpHReferencia(double pHReferencia) {
+        this.pHReferencia = pHReferencia;
+    }
+
     @Override
     public String toString() {
         return "Laudo{" +
@@ -263,10 +275,12 @@ public class Laudo {
                 ", magnesioTrocavelMgTroc=" + magnesioTrocavelMgTroc +
                 ", aluminioHidrogenioALplusH=" + aluminioHidrogenioALplusH +
                 ", CTC=" + CTC +
-                ", saturacaoCTC=" + saturacaoCTC +
+                ", saturacaoCTCBase=" + saturacaoCTCBase +
+                ", saturacaoCTCAl=" + saturacaoCTCAl +
                 ", relacaoCaMg=" + relacaoCaMg +
                 ", relacaoCaK=" + relacaoCaK +
                 ", relacaoMgK=" + relacaoMgK +
+                ", pHReferencia=" + pHReferencia +
                 '}';
     }
 }
