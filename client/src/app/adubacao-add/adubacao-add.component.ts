@@ -11,13 +11,14 @@ import { Laudo } from '../shared/adubacao/adubacao.model';
 })
 export class AdubacaoAddComponent {
   public static MIN_VALUE = 0;
+  public id = 0;
   public title = 'Cadastro do Laudo';
+  public isLoading: boolean;
   public form: FormGroup = this.fb.group({
     nome: ['', Validators.required],
     responsavel: ['', Validators.required],
     argila: ['', [Validators.required, Validators.min(AdubacaoAddComponent.MIN_VALUE)]],
     pH: ['', [Validators.required, Validators.min(AdubacaoAddComponent.MIN_VALUE)]],
-    pHReferencia: ['', [Validators.required, Validators.min(AdubacaoAddComponent.MIN_VALUE)]],
     indiceSMP: ['', [Validators.required, Validators.min(AdubacaoAddComponent.MIN_VALUE)]],
     fosforoP: ['', [Validators.required, Validators.min(AdubacaoAddComponent.MIN_VALUE)]],
     potassioK: ['', [Validators.required, Validators.min(AdubacaoAddComponent.MIN_VALUE)]],
@@ -26,11 +27,13 @@ export class AdubacaoAddComponent {
     calcioTrocavelCaTroc: ['', [Validators.required, Validators.min(AdubacaoAddComponent.MIN_VALUE)]],
     magnesioTrocavelMgTroc: ['', [Validators.required, Validators.min(AdubacaoAddComponent.MIN_VALUE)]],
     aluminioHidrogenioALplusH: ['', [Validators.required, Validators.min(AdubacaoAddComponent.MIN_VALUE)]],
-    CTC: ['', [Validators.required, Validators.min(AdubacaoAddComponent.MIN_VALUE)]],
-    saturacaoCTC: ['', [Validators.required, Validators.min(AdubacaoAddComponent.MIN_VALUE)]],
+    ctc: ['', [Validators.required, Validators.min(AdubacaoAddComponent.MIN_VALUE)]],
+    saturacaoCTCBase: ['', [Validators.required, Validators.min(AdubacaoAddComponent.MIN_VALUE)]],
+    saturacaoCTCAl: ['', [Validators.required, Validators.min(AdubacaoAddComponent.MIN_VALUE)]],
     relacaoCaMg: ['', [Validators.required, Validators.min(AdubacaoAddComponent.MIN_VALUE)]],
     relacaoCaK: ['', [Validators.required, Validators.min(AdubacaoAddComponent.MIN_VALUE)]],
     relacaoMgK: ['', [Validators.required, Validators.min(AdubacaoAddComponent.MIN_VALUE)]],
+    pHReferencia: ['', [Validators.required, Validators.min(AdubacaoAddComponent.MIN_VALUE)]],
   });
   constructor(
       private service: AdubacaoService,
@@ -38,14 +41,22 @@ export class AdubacaoAddComponent {
       private router: Router) { }
 
   public onSubmit(): void {
+      this.isLoading = true;
       const adubacaoAdd: Laudo = new Laudo(this.form.value);
       this.service.add(adubacaoAdd)
           .take(1)
-          .do(() => this.redirect())
-          .subscribe((res: boolean) => res);
+          .do(() => this.isLoading = false)
+          .subscribe((res: number) => {
+            this.id = res;
+            this.redirect();
+          });
   }
   private redirect(): void {
-      this.router.navigate(['/adubacao-view']);
+    this.router.navigate(['/adubacao-detail', this.id]);
+  }
+
+  private redirectBack(): void {
+    this.router.navigate(['./']);
   }
 
 }

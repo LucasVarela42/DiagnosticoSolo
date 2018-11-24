@@ -16,7 +16,9 @@ import { MatButtonModule,
   MatToolbarModule,
   MatFormFieldModule,
   MatGridListModule,
-  MatExpansionModule} from '@angular/material';
+  MatExpansionModule,
+  MatDialogModule,
+  MatSelectModule} from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -25,6 +27,7 @@ import { AdubacaoListComponent } from './adubacao-list/adubacao-list.component';
 import { AdubacaoAddComponent } from './adubacao-add/adubacao-add.component';
 import { AdubacaoDetailComponent } from './adubacao-detail/adubacao-detail.component';
 import { AdubacaoEditComponent } from './adubacao-edit/adubacao-edit.component';
+import { AdubacaoDeleteDialogComponent } from './adubacao-list/adubacao-delete-dialog/adubacao-delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,8 @@ import { AdubacaoEditComponent } from './adubacao-edit/adubacao-edit.component';
     AdubacaoListComponent,
     AdubacaoAddComponent,
     AdubacaoDetailComponent,
-    AdubacaoEditComponent
+    AdubacaoEditComponent,
+    AdubacaoDeleteDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -53,8 +57,11 @@ import { AdubacaoEditComponent } from './adubacao-edit/adubacao-edit.component';
     MatProgressSpinnerModule,
     MatGridListModule,
     MatExpansionModule,
+    MatDialogModule,
+    MatSelectModule,
   ],
   providers: [],
+  entryComponents: [AdubacaoDeleteDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

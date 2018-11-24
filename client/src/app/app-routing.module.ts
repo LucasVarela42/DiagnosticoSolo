@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { AdubacaoListComponent } from './adubacao-list/adubacao-list.component';
 import { AdubacaoAddComponent } from './adubacao-add/adubacao-add.component';
+import { AdubacaoEditComponent } from './adubacao-edit/adubacao-edit.component';
 import { AdubacaoDetailComponent } from './adubacao-detail/adubacao-detail.component';
 
 const routes: Routes = [
@@ -17,8 +18,8 @@ const routes: Routes = [
   },
   {
     path: 'adubacao-edit/:id',
-    component: AdubacaoAddComponent
-  }
+    component: AdubacaoEditComponent
+  },
   {
     path: 'adubacao-detail/:id',
     component: AdubacaoDetailComponent

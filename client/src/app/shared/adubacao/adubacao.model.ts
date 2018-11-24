@@ -5,7 +5,6 @@ export class Laudo {
     public diagnostico?: Diagnostico;
     public argila: number;
     public pH: number;
-    public pHReferencia: number;
     public indiceSMP: number;
     public fosforoP: number;
     public potassioK: number;
@@ -15,10 +14,12 @@ export class Laudo {
     public magnesioTrocavelMgTroc: number;
     public aluminioHidrogenioALplusH: number;
     public ctc: number;
-    public saturacaoCTC: number;
+    public saturacaoCTCBase: number;
+    public saturacaoCTCAl: number;
     public relacaoCaMg: number;
     public relacaoCaK: number;
     public relacaoMgK: number;
+    public pHReferencia: number;
 
     constructor(laudo: Laudo){
         this.id = laudo.id;
@@ -26,7 +27,6 @@ export class Laudo {
         this.responsavel = laudo.responsavel;
         this.argila = laudo.argila;
         this.pH = laudo.pH;
-        this.pHReferencia = laudo.pHReferencia;
         this.indiceSMP = laudo.indiceSMP;
         this.fosforoP = laudo.fosforoP;
         this.potassioK = laudo.potassioK;
@@ -36,19 +36,21 @@ export class Laudo {
         this.magnesioTrocavelMgTroc = laudo.magnesioTrocavelMgTroc;
         this.aluminioHidrogenioALplusH = laudo.aluminioHidrogenioALplusH;
         this.ctc = laudo.ctc;
-        this.saturacaoCTC = laudo.saturacaoCTC;
+        this.saturacaoCTCBase = laudo.saturacaoCTCBase;
+        this.saturacaoCTCAl = laudo.saturacaoCTCAl;
         this.relacaoCaMg = laudo.relacaoCaMg;
         this.relacaoCaK = laudo.relacaoCaK;
         this.relacaoMgK = laudo.relacaoMgK;
+        this.pHReferencia = laudo.pHReferencia;
     }
 }
 
 export class Diagnostico {
     public id?: number;
     public laudo: Laudo;
-    public faixaAzidez: number;
+    public faixaAcidez: number;
     public tipoCalcario: number;
-    public quantidadceCalcario: number;
+    public quantidadeCalcario: number;
     public finalidadeAdubacao: number;
     public recomendacao: string;
 }

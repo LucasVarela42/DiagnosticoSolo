@@ -97,22 +97,25 @@
             </mat-panel-title>
           </mat-expansion-panel-header>
           <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
-              <div fxFlex="50%">
-                <p>Quantidade de calcario</p>
-                {{diagnostico?.quantidadeCalcario}}
-              </div>
-              <div fxFlex="50%">
-                <p>Quantidade de calcario</p>
-                {{diagnostico?.quantidadeCalcario}}
-              </div>
+            <div fxFlex="50%">
+              <p>Quantidade de calcario</p>
+              {{diagnostico?.quantidadceCalcario | number:'1.2-2'}}
             </div>
+            
+          </div>
         </mat-expansion-panel>
       </div>
     </div>
 
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button>Editar</button>
-    <button mat-button (click)="redirect()">Voltar</button>
+    <div class="form-element" fxLayout="row">
+      <button mat-raised-button color="primary" (click)="redirect()">Editar</button>
+      <button mat-button (click)="redirectBack()">Voltar</button>
+      <div *ngIf="isLoading">
+        <mat-progress-spinner color="primary" mode="indeterminate" diameter="40">
+        </mat-progress-spinner>
+      </div>
+    </div>
   </mat-card-actions>
 </mat-card>

@@ -23,12 +23,12 @@ export class AdubacaoService {
     return this.http.get(`${this.api}/${id}`).map((response: Diagnostico) => response);
   }
 
-  public add(laudo: Laudo): Observable<boolean> {
-    return this.http.post(this.api, laudo).map((response: boolean) => response);
+  public add(laudo: Laudo): Observable<number> {
+    return this.http.post(this.api, laudo).map((response: Diagnostico) => response.id);
   }
 
-  public update(diagnostico: Diagnostico): Observable<boolean> {
-    return this.http.put(this.api, diagnostico).map((response: boolean) => response);
+  public update(diagnostico: Diagnostico): Observable<number> {
+    return this.http.put(`${this.api}/${diagnostico.id}`, diagnostico).map((response: Diagnostico) => response.id);
   }
 
   public delete(body: any): Observable<boolean> {

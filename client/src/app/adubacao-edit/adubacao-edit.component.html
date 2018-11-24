@@ -1,3 +1,189 @@
-<p>
-  adubacao-edit works!
-</p>
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar class="card-header-image">
+      <mat-icon>note</mat-icon>
+    </div>
+    <mat-card-title>{{title}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="card-content">
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
+        <div fxFlex="50%" fxLayoutGap="5px grid">
+          <mat-form-field class="form-element">
+            <input matInput placeholder="Titulo do Laudo" formControlName="nome">
+            <mat-error *ngIf="form.get('nome').hasError('required') && form.get('nome').touched">
+              Campo Obrigatório
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxFlex="50%" fxLayoutGap="5px grid">
+          <mat-form-field class="form-element">
+            <input matInput placeholder="Responsavel" formControlName="responsavel">
+            <mat-error *ngIf="form.get('responsavel').hasError('required') && form.get('responsavel').touched">
+              Campo Obrigatório
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
+        <div fxFlex="10%" fxLayoutGap="5px grid">
+          <mat-form-field class="form-element">
+            <input matInput type="number" placeholder="Argila %" formControlName="argila">
+            <mat-error *ngIf="form.get('argila').hasError('required') && form.get('argila').touched">
+              Campo Obrigatório
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxFlex="10%" fxLayoutGap="5px grid">
+          <mat-form-field class="form-element">
+            <input matInput type="number" placeholder="pH H²0" formControlName="pH">
+            <mat-error *ngIf="form.get('pH').hasError('required') && form.get('pH').touched">
+              Campo Obrigatório
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxFlex="10%" fxLayoutGap="5px grid">
+          <mat-form-field class="form-element">
+            <input matInput type="number" placeholder="Índice SMP" formControlName="indiceSMP">
+            <mat-error *ngIf="form.get('indiceSMP').hasError('required') && form.get('indiceSMP').touched">
+              Campo Obrigatório
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxFlex="10%" fxLayoutGap="5px grid">
+          <mat-form-field class="form-element">
+            <input matInput type="number" placeholder="P mg/dm³" formControlName="fosforoP">
+            <mat-error *ngIf="form.get('fosforoP').hasError('required') && form.get('fosforoP').touched">
+              Campo Obrigatório
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxFlex="10%" fxLayoutGap="5px grid">
+          <mat-form-field class="form-element">
+            <input matInput type="number" placeholder="K mg/dm³" formControlName="potassioK">
+            <mat-error *ngIf="form.get('potassioK').hasError('required') && form.get('potassioK').touched">
+              Campo Obrigatório
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxFlex="10%" fxLayoutGap="5px grid">
+          <mat-form-field class="form-element">
+            <input matInput type="number" placeholder="M.O %" formControlName="materiaOrganicaMO">
+            <mat-error *ngIf="form.get('materiaOrganicaMO').hasError('required') && form.get('materiaOrganicaMO').touched">
+              Campo Obrigatório
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxFlex="10%" fxLayoutGap="5px grid">
+          <mat-form-field class="form-element">
+            <input matInput type="number" placeholder="Al Trocavel cmolc/dm³" formControlName="aluminioTrocavelAlTroc">
+            <mat-error *ngIf="form.get('aluminioTrocavelAlTroc').hasError('required') && form.get('aluminioTrocavelAlTroc').touched">
+              Campo Obrigatório
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxFlex="10%" fxLayoutGap="5px grid">
+          <mat-form-field class="form-element">
+            <input matInput type="number" placeholder="Ca Trocavel cmolc/dm³" formControlName="calcioTrocavelCaTroc">
+            <mat-error *ngIf="form.get('calcioTrocavelCaTroc').hasError('required') && form.get('calcioTrocavelCaTroc').touched">
+              Campo Obrigatório
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxFlex="10%" fxLayoutGap="5px grid">
+          <mat-form-field class="form-element">
+            <input matInput type="number" placeholder="Mg Trocavel cmolc/dm³" formControlName="magnesioTrocavelMgTroc">
+            <mat-error *ngIf="form.get('magnesioTrocavelMgTroc').hasError('required') && form.get('magnesioTrocavelMgTroc').touched">
+              Campo Obrigatório
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
+        <div fxFlex="12%" fxLayoutGap="5px grid">
+          <mat-form-field class="form-element">
+            <input matInput type="number" placeholder="Al+H cmolc/dm³" formControlName="aluminioHidrogenioALplusH">
+            <mat-error *ngIf="form.get('aluminioHidrogenioALplusH').hasError('required') && form.get('aluminioHidrogenioALplusH').touched">
+              Campo Obrigatório
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxFlex="12%" fxLayoutGap="5px grid">
+          <mat-form-field class="form-element">
+            <input matInput type="number" placeholder="CTC cmolc/dm³" formControlName="ctc">
+            <mat-error *ngIf="form.get('ctc').hasError('required') && form.get('ctc').touched">
+              Campo Obrigatório
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxFlex="12%" fxLayoutGap="5px grid">
+          <mat-form-field class="form-element">
+            <input matInput type="number" placeholder="% Sat. da CTC: Bases" formControlName="saturacaoCTCBase">
+            <mat-error *ngIf="form.get('saturacaoCTCBase').hasError('required') && form.get('saturacaoCTCBase').touched">
+              Campo Obrigatório
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxFlex="12%" fxLayoutGap="5px grid">
+          <mat-form-field class="form-element">
+            <input matInput type="number" placeholder="% Sat. da CTC: Al" formControlName="saturacaoCTCAl">
+            <mat-error *ngIf="form.get('saturacaoCTCAl').hasError('required') && form.get('saturacaoCTCAl').touched">
+              Campo Obrigatório
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxFlex="12%" fxLayoutGap="5px grid">
+          <mat-form-field class="form-element">
+            <input matInput type="number" placeholder="Relações Ca/Mg" formControlName="relacaoCaMg">
+            <mat-error *ngIf="form.get('relacaoCaMg').hasError('required') && form.get('relacaoCaMg').touched">
+              Campo Obrigatório
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxFlex="12%" fxLayoutGap="5px grid">
+          <mat-form-field class="form-element">
+            <input matInput type="number" placeholder="Relações Ca/K" formControlName="relacaoCaK">
+            <mat-error *ngIf="form.get('relacaoCaK').hasError('required') && form.get('relacaoCaK').touched">
+              Campo Obrigatório
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxFlex="12%" fxLayoutGap="5px grid">
+          <mat-form-field class="form-element">
+            <input matInput type="number" placeholder="Relações Mg/K" formControlName="relacaoMgK">
+            <mat-error *ngIf="form.get('relacaoMgK').hasError('required') && form.get('relacaoMgK').touched">
+              Campo Obrigatório
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
+        <div fxFlex="100%" fxLayoutGap="5px grid">
+          <mat-form-field class="form-element">
+            <mat-select placeholder="pH de referência" formControlName="pHReferencia">
+              <mat-option [value]="6.5">6.5</mat-option>
+              <mat-option [value]="6.0">6.0</mat-option>
+            </mat-select>
+            <mat-hint>Critério de avaliação da cultura</mat-hint>
+            <mat-error *ngIf="form.get('pHReferencia').hasError('required') && form.get('pHReferencia').touched">
+              Campo Obrigatório
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="form-element" fxLayout="row">
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Salvar</button>
+        <button mat-button (click)="redirectBack()">Cancelar</button>
+        <div *ngIf="isLoading">
+          <mat-progress-spinner color="primary" mode="indeterminate" diameter="40">
+          </mat-progress-spinner>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

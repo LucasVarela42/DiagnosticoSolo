@@ -1,0 +1,15 @@
+
+.container {
+    padding: 10px;
+  }
+
+  .form-element {
+    padding: 5px 0px 0px 0px;
+    margin-top: 15px;
+    width: 100%;
+ }
+
+ .card-header-image {
+    background-size: cover;
+  }
+
