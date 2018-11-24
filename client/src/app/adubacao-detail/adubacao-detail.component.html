@@ -17,77 +17,81 @@
             </mat-panel-title>
           </mat-expansion-panel-header>
           <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
-            <div fxFlex="20%">
-              <p>Argila</p>
+            <div fxFlex="10%">
+              <p>Argila %</p>
               {{diagnostico?.laudo.argila}}
             </div>
-            <div fxFlex="20%">
-              <p>pH</p>
+            <div fxFlex="10%">
+              <p>pH H²0</p>
               {{diagnostico?.laudo.pH}}
             </div>
-            <div fxFlex="20%">
-              <p>indiceSMP</p>
+            <div fxFlex="10%">
+              <p>Índice SMP</p>
               {{diagnostico?.laudo.indiceSMP}}
             </div>
-            <div fxFlex="20%">
-              <p>fosforoP</p>
+            <div fxFlex="10%">
+              <p>P mg/dm³</p>
               {{diagnostico?.laudo.fosforoP}}
             </div>
-            <div fxFlex="20%">
-              <p>potassioK</p>
+            <div fxFlex="10%">
+              <p>K mg/dm³</p>
               {{diagnostico?.laudo.potassioK}}
             </div>
-          </div>
-
-          <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
-            <div fxFlex="20%">
-              <p>materiaOrganicaMO</p>
+            <div fxFlex="10%">
+              <p>M.O %</p>
               {{diagnostico?.laudo.materiaOrganicaMO}}
             </div>
-            <div fxFlex="20%">
-              <p>aluminioTrocavelAlTroc</p>
+            <div fxFlex="10%">
+              <p>Al Trocavel cmolc/dm³</p>
               {{diagnostico?.laudo.aluminioTrocavelAlTroc}}
             </div>
-            <div fxFlex="20%">
-              <p>calcioTrocavelCaTroc</p>
+            <div fxFlex="10%">
+              <p>Ca Trocavel cmolc/dm³</p>
               {{diagnostico?.laudo.calcioTrocavelCaTroc}}
             </div>
-            <div fxFlex="20%">
-              <p>magnesioTrocavelMgTroc</p>
+            <div fxFlex="10%">
+              <p>Mg Trocavel cmolc/dm³</p>
               {{diagnostico?.laudo.magnesioTrocavelMgTroc}}
             </div>
-            <div fxFlex="20%">
-              <p>aluminioHidrogenioALplusH</p>
+          </div>
+          <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
+            <div fxFlex="12%">
+              <p>Al+H cmolc/dm³</p>
               {{diagnostico?.laudo.aluminioHidrogenioALplusH}}
+            </div>
+            <div fxFlex="12%">
+              <p>CTC cmolc/dm³</p>
+              {{diagnostico?.laudo.ctc}}
+            </div>
+            <div fxFlex="12%">
+              <p>% Sat. da CTC: Bases</p>
+              {{diagnostico?.laudo.saturacaoCTCBase}}
+            </div>
+            <div fxFlex="12%">
+              <p>% Sat. da CTC: Al</p>
+              {{diagnostico?.laudo.saturacaoCTCAl}}
+            </div>
+            <div fxFlex="12%">
+              <p>Relações Ca/Mg</p>
+              {{diagnostico?.laudo.relacaoCaMg}}
+            </div>
+            <div fxFlex="12%">
+              <p>Relações Ca/K</p>
+              {{diagnostico?.laudo.relacaoCaK}}
+            </div>
+            <div fxFlex="12%">
+              <p>Relações Mg/K</p>
+              {{diagnostico?.laudo.relacaoMgK}}
             </div>
           </div>
 
           <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
-            <div fxFlex="20%">
-              <p>ctc</p>
-              {{diagnostico?.laudo.ctc}}
-            </div>
-            <div fxFlex="20%">
-              <p>saturacaoCTC</p>
-              {{diagnostico?.laudo.saturacaoCTC}}
-            </div>
-            <div fxFlex="20%">
-              <p>relacaoCaMg</p>
-              {{diagnostico?.laudo.relacaoCaMg}}
-            </div>
-            <div fxFlex="20%">
-              <p>relacaoCaK</p>
-              {{diagnostico?.laudo.relacaoCaK}}
-            </div>
-            <div fxFlex="20%">
-              <p>relacaoMgK</p>
-              {{diagnostico?.laudo.relacaoMgK}}
-            </div>
-            <div fxFlex="20%">
-              <p>pHReferencia</p>
+            <div fxFlex="100%">
+              <p>pH de referência escolhido</p>
               {{diagnostico?.laudo.pHReferencia}}
             </div>
           </div>
+
         </mat-expansion-panel>
 
         <mat-expansion-panel class="mat-elevation-z0">
@@ -98,10 +102,9 @@
           </mat-expansion-panel-header>
           <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
             <div fxFlex="50%">
-              <p>Quantidade de calcario</p>
-              {{diagnostico?.quantidadceCalcario | number:'1.2-2'}}
+              <p>Quantidade de calcário PRNT: 90%</p>
+              {{diagnostico?.quantidadeCalcario | number:'1.2-2'}}
             </div>
-            
           </div>
         </mat-expansion-panel>
       </div>

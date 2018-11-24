@@ -26,6 +26,6 @@ public class AdubacaoServiceIntegrationTest {
         laudo.setpHReferencia(6.5);
         Diagnostico diagnostico = new Diagnostico();
         adubacaoService.diagnosticoIndiceSMP(laudo, diagnostico);
-        Assert.assertEquals(18.83, diagnostico.getQuantidadceCalcario(), 0);
+        Assert.assertEquals(18.83, diagnostico.getQuantidadeCalcario(), 0);
     }
 }

@@ -15,7 +15,6 @@ public class AdubacaoService {
         kieSession.insert(laudo);
         kieSession.setGlobal("diagnostico",diagnostico);
         kieSession.fireAllRules();
-        System.out.println(diagnostico.toString());
         return diagnostico;
     }
 }
