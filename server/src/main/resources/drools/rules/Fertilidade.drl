@@ -1,0 +1,694 @@
+package drools.rules;
+
+import br.edu.ifsc.adubacao.model.Laudo;
+import br.edu.ifsc.adubacao.model.Diagnostico;
+
+global br.edu.ifsc.adubacao.model.Diagnostico diagnostico;
+
+dialect  "mvel"
+
+rule "Diagnostico_indice_SMP44_ph65"
+    when
+        Laudo(getIndiceSMP() <= 4.4, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(29.0);
+end
+
+rule "Diagnostico_indice_SMP45_ph65"
+    when
+        Laudo(getIndiceSMP() == 4.5, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(24.0);
+end
+
+rule "Diagnostico_indice_SMP46_ph65"
+    when
+        Laudo(getIndiceSMP() == 4.6, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(20.0);
+end
+
+rule "Diagnostico_indice_SMP47_ph65"
+    when
+        Laudo(getIndiceSMP() == 4.7, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(17.5);
+end
+
+rule "Diagnostico_indice_SMP48_ph65"
+    when
+        Laudo(getIndiceSMP() == 4.8, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(15.7);
+end
+
+rule "Diagnostico_indice_SMP49_ph65"
+    when
+        Laudo(getIndiceSMP() == 4.9, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(14.2);
+end
+
+rule "Diagnostico_indice_SMP50_ph65"
+    when
+        Laudo(getIndiceSMP() == 5.0, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(13.3);
+end
+
+rule "Diagnostico_indice_SMP51_ph65"
+    when
+        Laudo(getIndiceSMP() == 5.1, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(12.3);
+end
+
+rule "Diagnostico_indice_SMP52_ph65"
+    when
+        Laudo(getIndiceSMP() == 5.2, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(11.3);
+end
+
+rule "Diagnostico_indice_SMP53_ph65"
+    when
+        Laudo(getIndiceSMP() == 5.3, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(10.4);
+end
+
+rule "Diagnostico_indice_SMP54_ph65"
+    when
+        Laudo(getIndiceSMP() == 5.4, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(9.5);
+end
+
+rule "Diagnostico_indice_SMP55_ph65"
+    when
+        Laudo(getIndiceSMP() == 5.5, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(8.6);
+end
+
+rule "Diagnostico_indice_SMP56_ph65"
+    when
+        Laudo(getIndiceSMP() == 5.6, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(7.8);
+end
+
+rule "Diagnostico_indice_SMP57_ph65"
+    when
+        Laudo(getIndiceSMP() == 5.7, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(7.0);
+end
+
+rule "Diagnostico_indice_SMP58_ph65"
+    when
+        Laudo(getIndiceSMP() == 5.8, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(6.3);
+end
+
+rule "Diagnostico_indice_SMP59_ph65"
+    when
+        Laudo(getIndiceSMP() == 5.9, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(5.6);
+end
+
+rule "Diagnostico_indice_SMP60_ph65"
+    when
+        Laudo(getIndiceSMP() == 6.0, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(4.9);
+end
+
+rule "Diagnostico_indice_SMP61_ph65"
+    when
+        Laudo(getIndiceSMP() == 6.1, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(4.3);
+end
+
+rule "Diagnostico_indice_SMP62_ph65"
+    when
+        Laudo(getIndiceSMP() == 6.2, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(3.7);
+end
+
+rule "Diagnostico_indice_SMP63_ph65"
+    when
+        Laudo(getIndiceSMP() == 6.3, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(3.1);
+end
+
+rule "Diagnostico_indice_SMP64_ph65"
+    when
+        Laudo(getIndiceSMP() == 6.4, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(3.1);
+end
+
+rule "Diagnostico_indice_SMP65_ph65"
+    when
+        Laudo(getIndiceSMP() == 6.5, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(2.1);
+end
+
+rule "Diagnostico_indice_SMP66_ph65"
+    when
+        Laudo(getIndiceSMP() == 6.6, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(1.6);
+end
+
+rule "Diagnostico_indice_SMP67_ph65"
+    when
+        Laudo(getIndiceSMP() == 6.7, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(1.2);
+end
+
+rule "Diagnostico_indice_SMP68_ph65"
+    when
+        Laudo(getIndiceSMP() == 6.8, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(0.8);
+end
+
+rule "Diagnostico_indice_SMP69_ph65"
+    when
+        Laudo(getIndiceSMP() == 6.9, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(0.5);
+end
+
+rule "Diagnostico_indice_SMP70_ph65"
+    when
+        Laudo(getIndiceSMP() == 7.0, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(0.2);
+end
+
+rule "Diagnostico_indice_SMP71_ph65"
+    when
+        Laudo(getIndiceSMP() == 7.1, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(0);
+end
+
+rule "Diagnostico_indice_SMP71plus_ph65"
+    when
+        Laudo(getIndiceSMP() > 7.1, getpHReferencia() == 6.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(0);
+end
+
+rule "Diagnostico_indice_SMP44_ph60"
+    when
+        Laudo(getIndiceSMP() <= 4.4, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(21.0);
+end
+
+rule "Diagnostico_indice_SMP45_ph60"
+    when
+        Laudo(getIndiceSMP() == 4.5, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(17.3);
+end
+
+rule "Diagnostico_indice_SMP46_ph60"
+    when
+        Laudo(getIndiceSMP() == 4.6, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(15.1);
+end
+
+rule "Diagnostico_indice_SMP47_ph60"
+    when
+        Laudo(getIndiceSMP() == 4.7, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(13.3);
+end
+
+rule "Diagnostico_indice_SMP48_ph60"
+    when
+        Laudo(getIndiceSMP() == 4.8, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(11.9);
+end
+
+rule "Diagnostico_indice_SMP49_ph60"
+    when
+        Laudo(getIndiceSMP() == 4.9, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(10.7);
+end
+
+rule "Diagnostico_indice_SMP50_ph60"
+    when
+        Laudo(getIndiceSMP() == 5.0, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(9.9);
+end
+
+rule "Diagnostico_indice_SMP51_ph60"
+    when
+        Laudo(getIndiceSMP() == 5.1, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(9.1);
+end
+
+rule "Diagnostico_indice_SMP52_ph60"
+    when
+        Laudo(getIndiceSMP() == 5.2, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(8.3);
+end
+
+rule "Diagnostico_indice_SMP53_ph60"
+    when
+        Laudo(getIndiceSMP() == 5.3, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(7.5);
+end
+
+rule "Diagnostico_indice_SMP54_ph60"
+    when
+        Laudo(getIndiceSMP() == 5.4, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(6.8);
+end
+
+rule "Diagnostico_indice_SMP55_ph60"
+    when
+        Laudo(getIndiceSMP() == 5.5, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(6.1);
+end
+
+rule "Diagnostico_indice_SMP56_ph60"
+    when
+        Laudo(getIndiceSMP() == 5.6, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(5.4);
+end
+
+rule "Diagnostico_indice_SMP57_ph60"
+    when
+        Laudo(getIndiceSMP() == 5.7, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(4.8);
+end
+
+rule "Diagnostico_indice_SMP58_ph60"
+    when
+        Laudo(getIndiceSMP() == 5.8, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(4.2);
+end
+
+rule "Diagnostico_indice_SMP59_ph60"
+    when
+        Laudo(getIndiceSMP() == 5.9, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(3.7);
+end
+
+rule "Diagnostico_indice_SMP60_ph60"
+    when
+        Laudo(getIndiceSMP() == 6.0, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(3.2);
+end
+
+rule "Diagnostico_indice_SMP61_ph60"
+    when
+        Laudo(getIndiceSMP() == 6.1, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(2.7);
+end
+
+rule "Diagnostico_indice_SMP62_ph60"
+    when
+        Laudo(getIndiceSMP() == 6.2, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(2.2);
+end
+
+rule "Diagnostico_indice_SMP63_ph60"
+    when
+        Laudo(getIndiceSMP() == 6.3, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(1.8);
+end
+
+rule "Diagnostico_indice_SMP64_ph60"
+    when
+        Laudo(getIndiceSMP() == 6.4, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(1.4);
+end
+
+rule "Diagnostico_indice_SMP65_ph60"
+    when
+        Laudo(getIndiceSMP() == 6.5, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(1.1);
+end
+
+rule "Diagnostico_indice_SMP66_ph60"
+    when
+        Laudo(getIndiceSMP() == 6.6, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(0.8);
+end
+
+rule "Diagnostico_indice_SMP67_ph60"
+    when
+        Laudo(getIndiceSMP() == 6.7, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(0.5);
+end
+
+rule "Diagnostico_indice_SMP68_ph60"
+    when
+        Laudo(getIndiceSMP() == 6.8, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(0.3);
+end
+
+rule "Diagnostico_indice_SMP69_ph60"
+    when
+        Laudo(getIndiceSMP() == 6.9, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(0.2);
+end
+
+rule "Diagnostico_indice_SMP70_ph60"
+    when
+        Laudo(getIndiceSMP() == 7.0, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(0);
+end
+
+rule "Diagnostico_indice_SMP71_ph60"
+    when
+        Laudo(getIndiceSMP() == 7.1, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(0);
+end
+
+rule "Diagnostico_indice_SMP71plus_ph60"
+    when
+        Laudo(getIndiceSMP() > 7.1, getpHReferencia() == 6.0)
+    then
+        diagnostico.calcularQuantidadeCalcario(0);
+end
+
+rule "Diagnostico_indice_SMP44_ph55"
+    when
+        Laudo(getIndiceSMP() <= 4.4, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(15.0);
+end
+
+rule "Diagnostico_indice_SMP45_ph55"
+    when
+        Laudo(getIndiceSMP() == 4.5, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(12.5);
+end
+
+rule "Diagnostico_indice_SMP46_ph55"
+    when
+        Laudo(getIndiceSMP() == 4.6, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(10.9);
+end
+
+rule "Diagnostico_indice_SMP47_ph55"
+    when
+        Laudo(getIndiceSMP() == 4.7, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(9.6);
+end
+
+rule "Diagnostico_indice_SMP48_ph55"
+    when
+        Laudo(getIndiceSMP() == 4.8, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(8.5);
+end
+
+rule "Diagnostico_indice_SMP49_ph55"
+    when
+        Laudo(getIndiceSMP() == 4.9, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(7.7);
+end
+
+rule "Diagnostico_indice_SMP50_ph55"
+    when
+        Laudo(getIndiceSMP() == 5.0, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(6.6);
+end
+
+rule "Diagnostico_indice_SMP51_ph55"
+    when
+        Laudo(getIndiceSMP() == 5.1, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(6.0);
+end
+
+rule "Diagnostico_indice_SMP52_ph55"
+    when
+        Laudo(getIndiceSMP() == 5.2, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(5.3);
+end
+
+rule "Diagnostico_indice_SMP53_ph55"
+    when
+        Laudo(getIndiceSMP() == 5.3, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(4.8);
+end
+
+rule "Diagnostico_indice_SMP54_ph55"
+    when
+        Laudo(getIndiceSMP() == 5.4, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(4.2);
+end
+
+rule "Diagnostico_indice_SMP55_ph55"
+    when
+        Laudo(getIndiceSMP() == 5.5, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(3.7);
+end
+
+rule "Diagnostico_indice_SMP56_ph55"
+    when
+        Laudo(getIndiceSMP() == 5.6, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(3.2);
+end
+
+rule "Diagnostico_indice_SMP57_ph55"
+    when
+        Laudo(getIndiceSMP() == 5.7, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(2.8);
+end
+
+rule "Diagnostico_indice_SMP58_ph55"
+    when
+        Laudo(getIndiceSMP() == 5.8, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(2.3);
+end
+
+rule "Diagnostico_indice_SMP59_ph55"
+    when
+        Laudo(getIndiceSMP() == 5.9, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(2.0);
+end
+
+rule "Diagnostico_indice_SMP60_ph55"
+    when
+        Laudo(getIndiceSMP() == 6.0, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(1.6);
+end
+
+rule "Diagnostico_indice_SMP61_ph55"
+    when
+        Laudo(getIndiceSMP() == 6.1, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(1.3);
+end
+
+rule "Diagnostico_indice_SMP62_ph55"
+    when
+        Laudo(getIndiceSMP() == 6.2, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(1.0);
+end
+
+rule "Diagnostico_indice_SMP63_ph55"
+    when
+        Laudo(getIndiceSMP() == 6.3, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(0.8);
+end
+
+rule "Diagnostico_indice_SMP64_ph55"
+    when
+        Laudo(getIndiceSMP() == 6.4, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(0.6);
+end
+
+rule "Diagnostico_indice_SMP65_ph55"
+    when
+        Laudo(getIndiceSMP() == 6.5, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(0.4);
+end
+
+rule "Diagnostico_indice_SMP66_ph55"
+    when
+        Laudo(getIndiceSMP() == 6.6, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(0.2);
+end
+
+rule "Diagnostico_indice_SMP67_ph55"
+    when
+        Laudo(getIndiceSMP() == 6.7, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(0);
+end
+
+rule "Diagnostico_indice_SMP68_ph55"
+    when
+        Laudo(getIndiceSMP() == 6.8, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(0);
+end
+
+rule "Diagnostico_indice_SMP69_ph55"
+    when
+        Laudo(getIndiceSMP() == 6.9, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(0);
+end
+
+rule "Diagnostico_indice_SMP70_ph55"
+    when
+        Laudo(getIndiceSMP() == 7.0, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(0);
+end
+
+rule "Diagnostico_indice_SMP71_ph55"
+    when
+        Laudo(getIndiceSMP() == 7.1, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(0);
+end
+
+rule "Diagnostico_indice_SMP71plus_ph55"
+    when
+        Laudo(getIndiceSMP() > 7.1, getpHReferencia() == 5.5)
+    then
+        diagnostico.calcularQuantidadeCalcario(0);
+end
+
+rule "Diagnostico_teores_argila_20"
+    when
+        Laudo(getArgila() <= 20)
+    then
+        diagnostico.setClasseArgila(4);
+end
+
+rule "Diagnostico_teores_argila_21_40"
+    when
+        Laudo(getArgila() >= 21 && getArgila() <= 40)
+    then
+        diagnostico.setClasseArgila(3);
+end
+
+rule "Diagnostico_teores_argila_41_60"
+    when
+        Laudo(getArgila() >= 41 && getArgila() <= 60)
+    then
+        diagnostico.setClasseArgila(2);
+end
+
+rule "Diagnostico_teores_argila_60"
+    when
+        Laudo(getArgila() > 60)
+    then
+        diagnostico.setClasseArgila(1);
+end
+
+rule "Diagnostico_teores_MO_25"
+    when
+        Laudo(getMateriaOrganicaMO() <= 2.5)
+    then
+        diagnostico.setClasseMO("Baixo");
+end
+
+rule "Diagnostico_teores_MO_26_50"
+    when
+        Laudo(getMateriaOrganicaMO() >= 2.6 && getMateriaOrganicaMO() <= 5.0)
+    then
+        diagnostico.setClasseMO("Médio");
+end
+
+rule "Diagnostico_teores_MO_50"
+    when
+        Laudo(getMateriaOrganicaMO() > 5.0)
+    then
+        diagnostico.setClasseMO("Alto");
+end
+
+rule "Diagnostico_teores_CTC_75"
+    when
+        Laudo(getCtc() <= 7.5)
+    then
+        diagnostico.setClasseCTC("Baixo");
+end
+
+rule "Diagnostico_teores_CTC_76_15"
+    when
+        Laudo(getCtc() >= 7.6 && getCtc() <= 15)
+    then
+        diagnostico.setClasseCTC("Médio");
+end
+
+rule "Diagnostico_teores_CTC_151_30"
+    when
+        Laudo(getCtc() >= 15.1 && getCtc() <= 30)
+    then
+        diagnostico.setClasseCTC("Alto");
+end
+
+rule "Diagnostico_teores_CTC_30"
+    when
+        Laudo(getCtc() > 30)
+    then
+        diagnostico.setClasseCTC("Muito Alto");
+end
