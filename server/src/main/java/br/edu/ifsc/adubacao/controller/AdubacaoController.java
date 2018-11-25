@@ -39,6 +39,7 @@ public class AdubacaoController {
         laudo = laudoRepository.save(laudo);
         diagnostico.setLaudo(laudo);
         diagnostico = adubacaoService.diagnosticoIndiceSMP(laudo, diagnostico);
+        diagnostico = adubacaoService.diagnosticoFertilidade(diagnostico);
         return diagnosticoRepository.save(diagnostico);
     }
 
@@ -47,6 +48,7 @@ public class AdubacaoController {
         diagnostico = diagnosticoRepository.findById(id).get();
         diagnostico = details;
         diagnostico = adubacaoService.diagnosticoIndiceSMP(diagnostico.getLaudo(), diagnostico);
+        diagnostico = adubacaoService.diagnosticoFertilidade(diagnostico);
         return diagnosticoRepository.save(diagnostico);
     }
 
@@ -55,6 +57,7 @@ public class AdubacaoController {
         diagnostico = diagnosticoRepository.findById(id).get();
         diagnostico = details;
         diagnostico = adubacaoService.diagnosticoIndiceSMP(diagnostico.getLaudo(), diagnostico);
+        diagnostico = adubacaoService.diagnosticoFertilidade(diagnostico);
         return diagnosticoRepository.save(diagnostico);
     }
 

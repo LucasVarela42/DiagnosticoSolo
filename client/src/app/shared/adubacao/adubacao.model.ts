@@ -48,9 +48,17 @@ export class Laudo {
 export class Diagnostico {
     public id?: string;
     public laudo: Laudo;
-    public faixaAcidez: number;
-    public tipoCalcario: number;
-    public quantidadeCalcario: number;
-    public finalidadeAdubacao: number;
-    public recomendacao: string;
+    public quantidadeCalcario100: number;
+    public quantidadeCalcario85: number;
+    public quantidadeCalcario75: number;
+    public quantidadeCalcario65: number;
+    public quantidadeFosforoP: number;
+    public quantidadePotassioK: number;
+    public classeArgila: number;
+    public classeMO: string;
+    public classeCTC: string;
+    public classeFosforoP: string;
+    public classePotassioK: string;
+    public classeCalcioCa: string;
+    public classeMagnesioMg: string;
 }

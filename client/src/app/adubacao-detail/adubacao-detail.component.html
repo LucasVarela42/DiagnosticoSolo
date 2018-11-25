@@ -101,9 +101,63 @@
             </mat-panel-title>
           </mat-expansion-panel-header>
           <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
+            <div fxFlex="25%">
+              <p>Quantidade de calcário PRNT: 100%, 30cm</p>
+              {{diagnostico?.quantidadeCalcario100 | number:'1.2-2'}}
+            </div>
+            <div fxFlex="25%">
+              <p>Quantidade de calcário PRNT: 85%, 30cm</p>
+              {{diagnostico?.quantidadeCalcario85 | number:'1.2-2'}}
+            </div>
+            <div fxFlex="25%">
+              <p>Quantidade de calcário PRNT: 75%, 30cm</p>
+              {{diagnostico?.quantidadeCalcario75 | number:'1.2-2'}}
+            </div>
+            <div fxFlex="25%">
+              <p>Quantidade de calcário PRNT: 65%, 30cm</p>
+              {{diagnostico?.quantidadeCalcario65 | number:'1.2-2'}}
+            </div>
+          </div>
+          <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
+            <div fxFlex="33%">
+              <p>Teor de Argila</p>
+              {{diagnostico?.classeArgila}}
+            </div>
+            <div fxFlex="33%">
+              <p>Teor de M.O</p>
+              {{diagnostico?.classeMO}}
+            </div>
+            <div fxFlex="33%">
+              <p>Teor de CTC</p>
+              {{diagnostico?.classeCTC}}
+            </div>
+          </div>
+          <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
+            <div fxFlex="25%">
+              <p>Teor de P</p>
+              {{diagnostico?.classeFosforoP}}
+            </div>
+            <div fxFlex="25%">
+              <p>Teor de K</p>
+              {{diagnostico?.classePotassioK}}
+            </div>
+            <div fxFlex="25%">
+              <p>Teor de Ca</p>
+              {{diagnostico?.classeCalcioCa}}
+            </div>
+            <div fxFlex="25%">
+              <p>Teor de Mg</p>
+              {{diagnostico?.classeMagnesioMg}}
+            </div>
+          </div>
+          <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
             <div fxFlex="50%">
-              <p>Quantidade de calcário PRNT: 90%</p>
-              {{diagnostico?.quantidadeCalcario | number:'1.2-2'}}
+              <p>Quantidade de Fósforo P</p>
+              {{diagnostico?.quantidadeFosforoP}}
+            </div>
+            <div fxFlex="50%">
+              <p>Quantidade de Potássio K</p>
+              {{diagnostico?.quantidadePotassioK}}
             </div>
           </div>
         </mat-expansion-panel>
