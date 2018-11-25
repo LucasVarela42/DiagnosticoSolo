@@ -11,7 +11,7 @@ import { Laudo } from '../shared/adubacao/adubacao.model';
 })
 export class AdubacaoAddComponent {
   public static MIN_VALUE = 0;
-  public id = 0;
+  public id: string;
   public title = 'Cadastro do Laudo';
   public isLoading: boolean;
   public form: FormGroup = this.fb.group({
@@ -46,7 +46,7 @@ export class AdubacaoAddComponent {
       this.service.add(adubacaoAdd)
           .take(1)
           .do(() => this.isLoading = false)
-          .subscribe((res: number) => {
+          .subscribe((res: string) => {
             this.id = res;
             this.redirect();
           });

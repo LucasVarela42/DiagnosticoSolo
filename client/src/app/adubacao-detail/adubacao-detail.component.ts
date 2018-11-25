@@ -10,14 +10,14 @@ import { Diagnostico } from '../shared/adubacao/adubacao.model';
   styleUrls: ['./adubacao-detail.component.css']
 })
 export class AdubacaoDetailComponent implements OnInit, OnDestroy {
-  public id: number;
+  public id: string;
   public diagnostico: Diagnostico;
   public isLoading: boolean;
   private ngUnsubscribe: Subject<void> = new Subject<void>();
   constructor(private service: AdubacaoService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.params.subscribe(params => { this.id = +params['id']; });
+    this.route.params.subscribe(params => { this.id = params['id']; });
     this.isLoading = true;
     this.service.get(this.id)
       .takeUntil(this.ngUnsubscribe)

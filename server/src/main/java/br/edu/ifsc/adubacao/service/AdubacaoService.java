@@ -17,4 +17,11 @@ public class AdubacaoService {
         kieSession.fireAllRules();
         return diagnostico;
     }
+
+    public Diagnostico diagnosticoFertilidade(Diagnostico diagnostico) throws IOException {
+        kieSession.insert(diagnostico);
+        kieSession.setGlobal("diagnostico",diagnostico);
+        kieSession.fireAllRules();
+        return diagnostico;
+    }
 }

@@ -79,7 +79,6 @@ var AdubacaoAddComponent = /** @class */ (function () {
         this.service = service;
         this.fb = fb;
         this.router = router;
-        this.id = 0;
         this.title = 'Cadastro do Laudo';
         this.form = this.fb.group({
             nome: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
@@ -201,7 +200,7 @@ var AdubacaoDetailComponent = /** @class */ (function () {
     }
     AdubacaoDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.route.params.subscribe(function (params) { _this.id = +params['id']; });
+        this.route.params.subscribe(function (params) { _this.id = params['id']; });
         this.isLoading = true;
         this.service.get(this.id)
             .takeUntil(this.ngUnsubscribe)
@@ -294,7 +293,6 @@ var AdubacaoEditComponent = /** @class */ (function () {
         this.fb = fb;
         this.router = router;
         this.route = route;
-        this.id = 0;
         this.title = 'Edição do Laudo';
         this.ngUnsubscribe = new rxjs__WEBPACK_IMPORTED_MODULE_5__["Subject"]();
         this.form = this.fb.group({
@@ -322,7 +320,7 @@ var AdubacaoEditComponent = /** @class */ (function () {
     AdubacaoEditComponent_1 = AdubacaoEditComponent;
     AdubacaoEditComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.route.params.subscribe(function (params) { _this.id = +params['id']; });
+        this.route.params.subscribe(function (params) { _this.id = params['id']; });
         this.isLoading = true;
         this.service.get(this.id)
             .takeUntil(this.ngUnsubscribe)
@@ -451,7 +449,7 @@ module.exports = "  .adubacoes {\r\n    padding: 2rem;\r\n    padding-top: 0.5re
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div fxLayout=\"row\" fxLayout.xs=\"column\" fxLayoutAlign=\"end stretch\" class=\"controles\">\r\n  <button mat-flat-button color=\"primary\" (click)=\"create()\">Adicionar</button>\r\n</div>\r\n\r\n<div fxLayout=\"row wrap\" fxLayout.xs=\"column\" fxLayoutAlign=\"space-between stretch\" class=\"adubacoes\">\r\n  <table mat-table fxFlex=\"100%\" fxFlex.gt-sm=\"100%\" [dataSource]=\"dataSource\" class=\"mat-elevation-z1\">\r\n    <ng-container matColumnDef=\"id\">\r\n      <th mat-header-cell *matHeaderCellDef> No. </th>\r\n      <td mat-cell *matCellDef=\"let adubacao\"> {{adubacao.id}} </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"nome\" sticky>\r\n      <th mat-header-cell *matHeaderCellDef> Titulo do Laudo</th>\r\n      <td mat-cell *matCellDef=\"let adubacao\"> {{adubacao.laudo.nome}}</td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"responsavel\">\r\n      <th mat-header-cell *matHeaderCellDef> Responsavel</th>\r\n      <td mat-cell *matCellDef=\"let adubacao\"> {{adubacao.laudo.responsavel}}</td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"open\">\r\n      <th mat-header-cell *matHeaderCellDef></th>\r\n      <td mat-cell *matCellDef=\"let adubacao\">\r\n        <button mat-icon-button (click)=\"open(adubacao)\">\r\n          <mat-icon>open_in_new</mat-icon>\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"edit\">\r\n      <th mat-header-cell *matHeaderCellDef></th>\r\n      <td mat-cell *matCellDef=\"let adubacao\">\r\n        <button mat-icon-button (click)=\"edit(adubacao)\">\r\n          <mat-icon>edit</mat-icon>\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"delete\">\r\n      <th mat-header-cell *matHeaderCellDef></th>\r\n      <td mat-cell *matCellDef=\"let adubacao\">\r\n        <button mat-icon-button (click)=\"deleteDialog(adubacao)\">\r\n          <mat-icon>delete</mat-icon>\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n  </table>\r\n</div>\r\n<div *ngIf=\"isLoading\" fxLayout=\"row\" fxLayoutAlign=\"center center\">\r\n  <mat-progress-spinner color=\"primary\" mode=\"indeterminate\" diameter=\"40\">\r\n  </mat-progress-spinner>\r\n</div>"
+module.exports = "<div fxLayout=\"row\" fxLayout.xs=\"column\" fxLayoutAlign=\"end stretch\" class=\"controles\">\r\n  <button mat-flat-button color=\"primary\" (click)=\"create()\">Adicionar</button>\r\n</div>\r\n\r\n<div fxLayout=\"row wrap\" fxLayout.xs=\"column\" fxLayoutAlign=\"space-between stretch\" class=\"adubacoes\">\r\n  <table mat-table fxFlex=\"100%\" fxFlex.gt-sm=\"100%\" [dataSource]=\"dataSource\" class=\"mat-elevation-z1\">\r\n\r\n    <ng-container matColumnDef=\"nome\" sticky>\r\n      <th mat-header-cell *matHeaderCellDef> Titulo do Laudo</th>\r\n      <td mat-cell *matCellDef=\"let adubacao\"> {{adubacao.laudo.nome}}</td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"responsavel\">\r\n      <th mat-header-cell *matHeaderCellDef> Responsavel</th>\r\n      <td mat-cell *matCellDef=\"let adubacao\"> {{adubacao.laudo.responsavel}}</td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"open\">\r\n      <th mat-header-cell *matHeaderCellDef></th>\r\n      <td mat-cell *matCellDef=\"let adubacao\">\r\n        <button mat-icon-button (click)=\"open(adubacao)\">\r\n          <mat-icon>open_in_new</mat-icon>\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"edit\">\r\n      <th mat-header-cell *matHeaderCellDef></th>\r\n      <td mat-cell *matCellDef=\"let adubacao\">\r\n        <button mat-icon-button (click)=\"edit(adubacao)\">\r\n          <mat-icon>edit</mat-icon>\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"delete\">\r\n      <th mat-header-cell *matHeaderCellDef></th>\r\n      <td mat-cell *matCellDef=\"let adubacao\">\r\n        <button mat-icon-button (click)=\"deleteDialog(adubacao)\">\r\n          <mat-icon>delete</mat-icon>\r\n        </button>\r\n      </td>\r\n    </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n  </table>\r\n</div>\r\n<div *ngIf=\"isLoading\" fxLayout=\"row\" fxLayoutAlign=\"center center\">\r\n  <mat-progress-spinner color=\"primary\" mode=\"indeterminate\" diameter=\"40\">\r\n  </mat-progress-spinner>\r\n</div>"
 
 /***/ }),
 
@@ -491,7 +489,7 @@ var AdubacaoListComponent = /** @class */ (function () {
         this.adubacaoService = adubacaoService;
         this.router = router;
         this.dialog = dialog;
-        this.displayedColumns = ['id', 'nome', 'responsavel', 'open', 'edit', 'delete'];
+        this.displayedColumns = ['nome', 'responsavel', 'open', 'edit', 'delete'];
         this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatTableDataSource"]();
         this.selected = new _shared_adubacao_adubacao_model__WEBPACK_IMPORTED_MODULE_4__["Diagnostico"]();
     }
@@ -882,7 +880,6 @@ var AdubacaoService = /** @class */ (function () {
         return this.http.put(this.api + "/" + diagnostico.id, diagnostico).map(function (response) { return response.id; });
     };
     AdubacaoService.prototype.delete = function (body) {
-        console.log(body);
         return this.http.request('delete', "" + this.api, { body: body }).map(function (response) { return response; });
     };
     AdubacaoService = __decorate([

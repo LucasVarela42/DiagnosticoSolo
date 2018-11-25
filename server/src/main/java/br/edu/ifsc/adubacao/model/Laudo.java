@@ -2,70 +2,48 @@ package br.edu.ifsc.adubacao.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import javax.validation.constraints.NotBlank;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-
-@Entity
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-@Table(name = "laudos")
+@Document(collection="laudos")
+@JsonIgnoreProperties(value = {"diagnostico"}, allowGetters = true)
 public class Laudo {
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private String id;
 
-    @Column(name = "nome")
     private String nome;
-    @NotNull
-    @Column(name = "responsavel")
+    @NotBlank
     private String responsavel;
 
     @JsonIgnore
-    @OneToOne(mappedBy = "laudo")
     private Diagnostico diagnostico;
 
-    @Column(name = "argila")
     private double argila;
-    @Column(name = "ph")
     private double pH;
-    @Column(name = "indice_smp")
     private double indiceSMP;
-    @Column(name = "fosforo_p")
     private double fosforoP;
-    @Column(name = "potassio_k")
     private double potassioK;
-    @Column(name = "materia_organica_mo")
     private double materiaOrganicaMO;
-    @Column(name = "aluminio_trocavel_al_troc")
     private double aluminioTrocavelAlTroc;
-    @Column(name = "calcio_trocavel_ca_troc")
     private double calcioTrocavelCaTroc;
-    @Column(name = "magnesio_trocavel_mg_troc")
     private double magnesioTrocavelMgTroc;
 
-    @Column(name = "aluminio_hidrogenio_al_plus_h")
     private double aluminioHidrogenioALplusH;
-    @Column(name = "ctc")
-    private double CTC;
-    @Column(name = "saturacao_ctc_base")
+    private double ctc;
     private double saturacaoCTCBase;
-    @Column(name = "saturacao_ctc_al")
     private double saturacaoCTCAl;
-    @Column(name = "relacao_ca_mg")
     private double relacaoCaMg;
-    @Column(name = "relacao_ca_k")
     private double relacaoCaK;
-    @Column(name = "relacao_mg_k")
     private double relacaoMgK;
 
-    @Column(name = "ph_referencia")
     private double pHReferencia;
 
     public Laudo() {
     }
 
-    public Laudo(String nome, @NotNull String responsavel, Diagnostico diagnostico, double argila, double pH, double indiceSMP, double fosforoP, double potassioK, double materiaOrganicaMO, double aluminioTrocavelAlTroc, double calcioTrocavelCaTroc, double magnesioTrocavelMgTroc, double aluminioHidrogenioALplusH, double CTC, double saturacaoCTCBase, double saturacaoCTCAl, double relacaoCaMg, double relacaoCaK, double relacaoMgK, double pHReferencia) {
+    public Laudo(String id, String nome, @NotBlank String responsavel, Diagnostico diagnostico, double argila, double pH, double indiceSMP, double fosforoP, double potassioK, double materiaOrganicaMO, double aluminioTrocavelAlTroc, double calcioTrocavelCaTroc, double magnesioTrocavelMgTroc, double aluminioHidrogenioALplusH, double ctc, double saturacaoCTCBase, double saturacaoCTCAl, double relacaoCaMg, double relacaoCaK, double relacaoMgK, double pHReferencia) {
+        this.id = id;
         this.nome = nome;
         this.responsavel = responsavel;
         this.diagnostico = diagnostico;
@@ -79,7 +57,7 @@ public class Laudo {
         this.calcioTrocavelCaTroc = calcioTrocavelCaTroc;
         this.magnesioTrocavelMgTroc = magnesioTrocavelMgTroc;
         this.aluminioHidrogenioALplusH = aluminioHidrogenioALplusH;
-        this.CTC = CTC;
+        this.ctc = ctc;
         this.saturacaoCTCBase = saturacaoCTCBase;
         this.saturacaoCTCAl = saturacaoCTCAl;
         this.relacaoCaMg = relacaoCaMg;
@@ -88,11 +66,11 @@ public class Laudo {
         this.pHReferencia = pHReferencia;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -201,12 +179,12 @@ public class Laudo {
         this.aluminioHidrogenioALplusH = aluminioHidrogenioALplusH;
     }
 
-    public double getCTC() {
-        return CTC;
+    public double getCtc() {
+        return ctc;
     }
 
-    public void setCTC(double CTC) {
-        this.CTC = CTC;
+    public void setCtc(double ctc) {
+        this.ctc = ctc;
     }
 
     public double getSaturacaoCTCBase() {
@@ -274,7 +252,7 @@ public class Laudo {
                 ", calcioTrocavelCaTroc=" + calcioTrocavelCaTroc +
                 ", magnesioTrocavelMgTroc=" + magnesioTrocavelMgTroc +
                 ", aluminioHidrogenioALplusH=" + aluminioHidrogenioALplusH +
-                ", CTC=" + CTC +
+                ", ctc=" + ctc +
                 ", saturacaoCTCBase=" + saturacaoCTCBase +
                 ", saturacaoCTCAl=" + saturacaoCTCAl +
                 ", relacaoCaMg=" + relacaoCaMg +

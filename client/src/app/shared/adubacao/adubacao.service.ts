@@ -19,20 +19,19 @@ export class AdubacaoService {
     return this.http.get(`${this.api}`).map((response: any) => response);
   }
 
-  public get(id: number): Observable<Diagnostico> {
+  public get(id: string): Observable<Diagnostico> {
     return this.http.get(`${this.api}/${id}`).map((response: Diagnostico) => response);
   }
 
-  public add(laudo: Laudo): Observable<number> {
+  public add(laudo: Laudo): Observable<string> {
     return this.http.post(this.api, laudo).map((response: Diagnostico) => response.id);
   }
 
-  public update(diagnostico: Diagnostico): Observable<number> {
+  public update(diagnostico: Diagnostico): Observable<string> {
     return this.http.put(`${this.api}/${diagnostico.id}`, diagnostico).map((response: Diagnostico) => response.id);
   }
 
   public delete(body: any): Observable<boolean> {
-    console.log(body);
     return this.http.request('delete', `${this.api}`, { body }).map((response: boolean) => response);
   }
 

@@ -1,5 +1,5 @@
 export class Laudo {
-    public id?: number;
+    public id?: string;
     public nome: string;
     public responsavel: string;
     public diagnostico?: Diagnostico;
@@ -46,7 +46,7 @@ export class Laudo {
 }
 
 export class Diagnostico {
-    public id?: number;
+    public id?: string;
     public laudo: Laudo;
     public faixaAcidez: number;
     public tipoCalcario: number;

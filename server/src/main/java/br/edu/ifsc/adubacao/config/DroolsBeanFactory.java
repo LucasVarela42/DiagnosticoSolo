@@ -50,6 +50,7 @@ public class DroolsBeanFactory {
         KieFileSystem kieFileSystem = kieServices.newKieFileSystem();
 
         kieFileSystem.write(ResourceFactory.newClassPathResource(RULES_PATH + "Adubacao.drl", "UTF-8"));
+        kieFileSystem.write(ResourceFactory.newClassPathResource(RULES_PATH + "Fertilidade.drl", "UTF-8"));
 
         KieBuilder kb = kieServices.newKieBuilder(kieFileSystem);
         kb.buildAll();

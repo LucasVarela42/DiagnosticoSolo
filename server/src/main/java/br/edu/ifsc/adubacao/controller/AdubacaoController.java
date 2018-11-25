@@ -5,15 +5,13 @@ import br.edu.ifsc.adubacao.model.Laudo;
 import br.edu.ifsc.adubacao.repository.IDiagnosticoRepository;
 import br.edu.ifsc.adubacao.repository.ILaudoRepository;
 import br.edu.ifsc.adubacao.service.AdubacaoService;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
+@CrossOrigin("*")
 @RestController
 @RequestMapping("api")
 public class AdubacaoController {
@@ -32,7 +30,7 @@ public class AdubacaoController {
     }
 
     @GetMapping(path = "adubacoes/{id}", produces = "application/JSON")
-    public Diagnostico getById(@PathVariable int id) {
+    public Diagnostico getById(@PathVariable String id) {
         return diagnosticoRepository.findById(id).get();
     }
 
@@ -45,23 +43,23 @@ public class AdubacaoController {
     }
 
     @PutMapping(path = "adubacoes/{id}", produces = "application/JSON")
-    public Diagnostico updateById(@PathVariable int id, @Valid @RequestBody Diagnostico details) throws IOException {
-        diagnostico = diagnosticoRepository.getOne(id);
+    public Diagnostico updateById(@PathVariable String id, @Valid @RequestBody Diagnostico details) throws IOException {
+        diagnostico = diagnosticoRepository.findById(id).get();
         diagnostico = details;
         diagnostico = adubacaoService.diagnosticoIndiceSMP(diagnostico.getLaudo(), diagnostico);
         return diagnosticoRepository.save(diagnostico);
     }
 
     @PatchMapping(path = "adubacoes/{id}", produces = "application/JSON")
-    public Diagnostico patchById(@PathVariable int id, @Valid @RequestBody Diagnostico details) throws IOException {
-        diagnostico = diagnosticoRepository.getOne(id);
+    public Diagnostico patchById(@PathVariable String id, @Valid @RequestBody Diagnostico details) throws IOException {
+        diagnostico = diagnosticoRepository.findById(id).get();
         diagnostico = details;
         diagnostico = adubacaoService.diagnosticoIndiceSMP(diagnostico.getLaudo(), diagnostico);
         return diagnosticoRepository.save(diagnostico);
     }
 
     @DeleteMapping(path = "adubacoes", produces = "application/JSON")
-    public boolean delete(@RequestBody int adubacaoId) {
+    public boolean delete(@RequestBody String adubacaoId) {
         diagnosticoRepository.deleteById(adubacaoId);
         return true;
     }

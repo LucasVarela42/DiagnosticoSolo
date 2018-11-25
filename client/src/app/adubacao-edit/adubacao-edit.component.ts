@@ -11,7 +11,7 @@ import { Subject } from 'rxjs';
 })
 export class AdubacaoEditComponent implements OnInit {
   public static MIN_VALUE = 0;
-  public id = 0;
+  public id: string;
   public title = 'Edição do Laudo';
   public diagnostico: Diagnostico;
   public isLoading: boolean;
@@ -44,7 +44,7 @@ export class AdubacaoEditComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.params.subscribe(params => { this.id = +params['id']; });
+    this.route.params.subscribe(params => { this.id = params['id']; });
     this.isLoading = true;
     this.service.get(this.id)
       .takeUntil(this.ngUnsubscribe)
@@ -62,7 +62,7 @@ export class AdubacaoEditComponent implements OnInit {
     this.service.update(this.diagnostico)
       .take(1)
       .do(() => this.isLoading = false)
-      .subscribe((res: number) => {
+      .subscribe((res: string) => {
         this.id = res;
         this.redirect();
       });

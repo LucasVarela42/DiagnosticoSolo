@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AdubacaoListComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'nome', 'responsavel', 'open', 'edit', 'delete'];
+  displayedColumns: string[] = ['nome', 'responsavel', 'open', 'edit', 'delete'];
   dataSource = new MatTableDataSource<any>();
   selected: Diagnostico = new Diagnostico();
   isLoading: boolean;
