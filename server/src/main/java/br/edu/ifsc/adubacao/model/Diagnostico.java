@@ -5,7 +5,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection="diagnosticos")
-@JsonIgnoreProperties(allowGetters = true)
 public class Diagnostico {
     @Id
     private String id;
@@ -93,6 +92,22 @@ public class Diagnostico {
         this.quantidadeCalcario65 = quantidadeCalcario65;
     }
 
+    public double getQuantidadeFosforoP() {
+        return quantidadeFosforoP;
+    }
+
+    public void setQuantidadeFosforoP(double quantidadeFosforoP) {
+        this.quantidadeFosforoP = quantidadeFosforoP;
+    }
+
+    public double getQuantidadePotassioK() {
+        return quantidadePotassioK;
+    }
+
+    public void setQuantidadePotassioK(double quantidadePotassioK) {
+        this.quantidadePotassioK = quantidadePotassioK;
+    }
+
     public int getClasseArgila() {
         return classeArgila;
     }
@@ -149,30 +164,122 @@ public class Diagnostico {
         this.classeMagnesioMg = classeMagnesioMg;
     }
 
-    public double getQuantidadeFosforoP() {
-        return quantidadeFosforoP;
-    }
-
-    public void setQuantidadeFosforoP(double quantidadeFosforoP) {
-        this.quantidadeFosforoP = quantidadeFosforoP;
-    }
-
-    public double getQuantidadePotassioK() {
-        return quantidadePotassioK;
-    }
-
-    public void setQuantidadePotassioK(double quantidadePotassioK) {
-        this.quantidadePotassioK = quantidadePotassioK;
-    }
-
     public void calcularQuantidadeCalcario(double nc){
-        quantidadeCalcario100 = (( (nc*1.5) * 100) / 1) / 100;
-        quantidadeCalcario85 = (( (nc*1.5) * 100) / 0.85) / 100;
-        quantidadeCalcario75 = (( (nc*1.5) * 100) / 0.75) / 100;
-        quantidadeCalcario65 = (( (nc*1.5) * 100) / 0.65) / 100;
+        this.quantidadeCalcario100 = (( (nc*1.5) * 100) / 1) / 100;
+        this.quantidadeCalcario85 = (( (nc*1.5) * 100) / 0.85) / 100;
+        this.quantidadeCalcario75 = (( (nc*1.5) * 100) / 0.75) / 100;
+        this.quantidadeCalcario65 = (( (nc*1.5) * 100) / 0.65) / 100;
     }
 
+    public void calcularTeorPotassioK() {
+        String classeCtc = this.classeCTC;
+        double potassioK = this.laudo.getPotassioK();
 
+        if(classeCtc.equals("Baixo")&&(potassioK <= 20))
+        this.classePotassioK = "Muito Baixo";
 
+        if(classeCtc.equals("Médio")&&(potassioK <= 30))
+        this.classePotassioK = "Muito Baixo";
 
+        if(classeCtc.equals("Alto")&&(potassioK <= 40))
+        this.classePotassioK = "Muito Baixo";
+
+        if(classeCtc.equals("Muito Alto")&&(potassioK <= 45))
+        this.classePotassioK = "Muito Baixo";
+
+        if(classeCtc.equals("Baixo")&&(potassioK >= 21 && potassioK <= 40))
+        this.classePotassioK = "Baixo";
+
+        if(classeCtc.equals("Médio")&&(potassioK >= 31 && potassioK <= 60))
+        this.classePotassioK = "Baixo";
+
+        if(classeCtc.equals("Alto")&&(potassioK >= 41 && potassioK <= 80))
+        this.classePotassioK = "Baixo";
+
+        if(classeCtc.equals("Muito Alto")&&(potassioK >= 46 && potassioK <= 90))
+        this.classePotassioK = "Baixo";
+
+        if(classeCtc.equals("Baixo")&&(potassioK >= 41 && potassioK <= 60))
+        this.classePotassioK = "Médio";
+
+        if(classeCtc.equals("Médio")&&(potassioK >= 61 && potassioK <= 90))
+        this.classePotassioK = "Médio";
+
+        if(classeCtc.equals("Alto")&&(potassioK >= 81 && potassioK <= 120))
+        this.classePotassioK = "Médio";
+
+        if(classeCtc.equals("Muito Alto")&&(potassioK >= 91 && potassioK <= 135))
+        this.classePotassioK = "Médio";
+
+        if(classeCtc.equals("Baixo")&&(potassioK >= 61 && potassioK <= 120))
+        this.classePotassioK = "Alto";
+
+        if(classeCtc.equals("Médio")&&(potassioK >= 91 && potassioK <= 180))
+        this.classePotassioK = "Alto";
+
+        if(classeCtc.equals("Alto")&&(potassioK >= 121 && potassioK <= 240))
+        this.classePotassioK = "Alto";
+
+        if(classeCtc.equals("Muito Alto")&&(potassioK >= 136 && potassioK <= 270))
+        this.classePotassioK = "Alto";
+
+        if(classeCtc.equals("Baixo")&&(potassioK > 120))
+        this.classePotassioK = "Muito Alto";
+
+        if(classeCtc.equals("Médio")&&(potassioK > 180))
+        this.classePotassioK = "Muito Alto";
+
+        if(classeCtc.equals("Alto")&&(potassioK > 240))
+        this.classePotassioK = "Muito Alto";
+
+        if(classeCtc.equals("Muito Alto")&&(potassioK > 270))
+        this.classePotassioK = "Muito Alto";
+    }
+
+    public void calcularQuantidadeFosforoP() {
+        if(this.classeFosforoP.equals("Muito Baixo"))
+            quantidadeFosforoP = 250;
+        if(this.classeFosforoP.equals("Baixo"))
+            quantidadeFosforoP = 170;
+        if(this.classeFosforoP.equals("Médio"))
+            quantidadeFosforoP = 130;
+        if(this.classeFosforoP.equals("Alto"))
+            quantidadeFosforoP = 90;
+        if(this.classeFosforoP.equals("Muito Alto"))
+            quantidadeFosforoP = 0;
+    }
+
+    public void calcularQuantidadePotassioK() {
+        if(this.classePotassioK.equals("Muito Baixo"))
+            quantidadePotassioK = 150;
+        if(this.classePotassioK.equals("Baixo"))
+            quantidadePotassioK = 90;
+        if(this.classePotassioK.equals("Médio"))
+            quantidadePotassioK = 60;
+        if(this.classePotassioK.equals("Alto"))
+            quantidadePotassioK = 30;
+        if(this.classePotassioK.equals("Muito Alto"))
+            quantidadePotassioK = 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Diagnostico{" +
+                "id='" + id + '\'' +
+                ", laudo=" + laudo +
+                ", quantidadeCalcario100=" + quantidadeCalcario100 +
+                ", quantidadeCalcario85=" + quantidadeCalcario85 +
+                ", quantidadeCalcario75=" + quantidadeCalcario75 +
+                ", quantidadeCalcario65=" + quantidadeCalcario65 +
+                ", quantidadeFosforoP=" + quantidadeFosforoP +
+                ", quantidadePotassioK=" + quantidadePotassioK +
+                ", classeArgila=" + classeArgila +
+                ", classeMO='" + classeMO + '\'' +
+                ", classeCTC='" + classeCTC + '\'' +
+                ", classeFosforoP='" + classeFosforoP + '\'' +
+                ", classePotassioK='" + classePotassioK + '\'' +
+                ", classeCalcioCa='" + classeCalcioCa + '\'' +
+                ", classeMagnesioMg='" + classeMagnesioMg + '\'' +
+                '}';
+    }
 }

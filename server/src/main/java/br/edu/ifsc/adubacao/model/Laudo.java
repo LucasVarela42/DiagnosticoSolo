@@ -11,14 +11,11 @@ import javax.validation.constraints.NotBlank;
 public class Laudo {
     @Id
     private String id;
-
     private String nome;
     @NotBlank
     private String responsavel;
-
     @JsonIgnore
     private Diagnostico diagnostico;
-
     private double argila;
     private double pH;
     private double indiceSMP;
@@ -28,7 +25,6 @@ public class Laudo {
     private double aluminioTrocavelAlTroc;
     private double calcioTrocavelCaTroc;
     private double magnesioTrocavelMgTroc;
-
     private double aluminioHidrogenioALplusH;
     private double ctc;
     private double saturacaoCTCBase;
@@ -36,7 +32,6 @@ public class Laudo {
     private double relacaoCaMg;
     private double relacaoCaK;
     private double relacaoMgK;
-
     private double pHReferencia;
 
     public Laudo() {

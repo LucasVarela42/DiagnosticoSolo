@@ -80,4 +80,53 @@ public class AdubacaoServiceIntegrationTest {
         adubacaoService.diagnosticoFertilidade(diagnostico);
         Assert.assertEquals("Muito Baixo",  diagnostico.getClasseFosforoP());
     }
+
+    @Test
+    public void whenCriteriaMatching_ThenSetK_class_2_B() throws IOException {
+        Laudo laudo = new Laudo();
+        laudo.setId("1");
+        laudo.setNome("Viera Lucas");
+        laudo.setResponsavel("Lucas");
+        laudo.setArgila(54);
+        laudo.setpH(5.2);
+        laudo.setIndiceSMP(5.2);
+        laudo.setFosforoP(1.8);
+        laudo.setPotassioK(50);
+        laudo.setMateriaOrganicaMO(2.9);
+        laudo.setAluminioTrocavelAlTroc(1.1);
+        laudo.setCalcioTrocavelCaTroc(1.9);
+        laudo.setMagnesioTrocavelMgTroc(3.4);
+        laudo.setAluminioHidrogenioALplusH(10.9);
+        laudo.setCtc(16.9);
+        laudo.setSaturacaoCTCBase(33.2);
+        laudo.setSaturacaoCTCAl(16.8);
+        laudo.setRelacaoCaMg(0.56);
+        laudo.setRelacaoCaK(14.82);
+        laudo.setRelacaoMgK(26.52);
+        laudo.setpHReferencia(6);
+        Diagnostico diagnostico = new Diagnostico();
+        diagnostico.setLaudo(laudo);
+        diagnostico = adubacaoService.diagnosticoIndiceSMP(laudo, diagnostico);
+        diagnostico = adubacaoService.diagnosticoFertilidade(diagnostico);
+        diagnostico.calcularTeorPotassioK();
+        diagnostico.calcularQuantidadePotassioK();
+        diagnostico.calcularQuantidadeFosforoP();
+        Assert.assertEquals("Muito Baixo",  diagnostico.getClasseFosforoP());
+        Assert.assertEquals(250,  diagnostico.getQuantidadeFosforoP(), 0);
+    }
+
+    @Test
+    public void whenCriteriaMatching_ThenSetQuantidade_K_B() throws IOException {
+        Laudo laudo = new Laudo();
+        laudo.setId("1");
+        laudo.setResponsavel("Lucas");
+        laudo.setPotassioK(50);
+        Diagnostico diagnostico = new Diagnostico();
+        diagnostico.setLaudo(laudo);
+        diagnostico.setClasseCTC("Alto");
+        diagnostico = adubacaoService.diagnosticoFertilidade(diagnostico);
+        diagnostico.calcularTeorPotassioK();
+        diagnostico.calcularQuantidadePotassioK();
+        Assert.assertEquals(90,  diagnostico.getQuantidadePotassioK(), 0);
+    }
 }

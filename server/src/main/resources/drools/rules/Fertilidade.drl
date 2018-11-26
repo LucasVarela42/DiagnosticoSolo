@@ -6,11 +6,39 @@ global br.edu.ifsc.adubacao.model.Diagnostico diagnostico;
 
 dialect  "mvel"
 
+rule "Diagnostico_teores_P_class_1_MB"
+    when
+        Diagnostico(classeArgila == 1, laudo.fosforoP <= 3)
+    then
+        diagnostico.setClasseFosforoP("Muito Baixo");
+end
+
 rule "Diagnostico_teores_P_class_2_MB"
     when
         Diagnostico(classeArgila == 2, laudo.fosforoP <= 4)
     then
         diagnostico.setClasseFosforoP("Muito Baixo");
+end
+
+rule "Diagnostico_teores_P_class_3_MB"
+    when
+        Diagnostico(classeArgila == 3, laudo.fosforoP <= 6)
+    then
+        diagnostico.setClasseFosforoP("Muito Baixo");
+end
+
+rule "Diagnostico_teores_P_class_4_MB"
+    when
+        Diagnostico(classeArgila == 4, laudo.fosforoP <= 10)
+    then
+        diagnostico.setClasseFosforoP("Muito Baixo");
+end
+
+rule "Diagnostico_teores_P_class_1_B"
+    when
+        Diagnostico(classeArgila == 1, laudo.fosforoP >= 3.1 && laudo.fosforoP <= 6)
+    then
+        diagnostico.setClasseFosforoP("Baixo");
 end
 
 rule "Diagnostico_teores_P_class_2_B"
@@ -20,11 +48,53 @@ rule "Diagnostico_teores_P_class_2_B"
         diagnostico.setClasseFosforoP("Baixo");
 end
 
+rule "Diagnostico_teores_P_class_3_B"
+    when
+        Diagnostico(classeArgila == 3, laudo.fosforoP >= 6.1 && laudo.fosforoP <= 12)
+    then
+        diagnostico.setClasseFosforoP("Baixo");
+end
+
+rule "Diagnostico_teores_P_class_4_B"
+    when
+        Diagnostico(classeArgila == 4, laudo.fosforoP >= 10.1 && laudo.fosforoP <= 20)
+    then
+        diagnostico.setClasseFosforoP("Baixo");
+end
+
+rule "Diagnostico_teores_P_class_1_M"
+    when
+        Diagnostico(classeArgila == 1, laudo.fosforoP >= 6.1 && laudo.fosforoP <= 9)
+    then
+        diagnostico.setClasseFosforoP("Médio");
+end
+
 rule "Diagnostico_teores_P_class_2_M"
     when
         Diagnostico(classeArgila == 2, laudo.fosforoP >= 8.1 && laudo.fosforoP <= 12)
     then
         diagnostico.setClasseFosforoP("Médio");
+end
+
+rule "Diagnostico_teores_P_class_3_M"
+    when
+        Diagnostico(classeArgila == 3, laudo.fosforoP >= 12.1 && laudo.fosforoP <= 18)
+    then
+        diagnostico.setClasseFosforoP("Médio");
+end
+
+rule "Diagnostico_teores_P_class_4_M"
+    when
+        Diagnostico(classeArgila == 4, laudo.fosforoP >= 20.1 && laudo.fosforoP <= 30)
+    then
+        diagnostico.setClasseFosforoP("Médio");
+end
+
+rule "Diagnostico_teores_P_class_1_A"
+    when
+        Diagnostico(classeArgila == 1, laudo.fosforoP >= 9.1 && laudo.fosforoP <= 18)
+    then
+        diagnostico.setClasseFosforoP("Alto");
 end
 
 rule "Diagnostico_teores_P_class_2_A"
@@ -34,6 +104,27 @@ rule "Diagnostico_teores_P_class_2_A"
         diagnostico.setClasseFosforoP("Alto");
 end
 
+rule "Diagnostico_teores_P_class_3_A"
+    when
+        Diagnostico(classeArgila == 3, laudo.fosforoP >= 18.1 && laudo.fosforoP <= 36)
+    then
+        diagnostico.setClasseFosforoP("Alto");
+end
+
+rule "Diagnostico_teores_P_class_4_A"
+    when
+        Diagnostico(classeArgila == 4, laudo.fosforoP >= 30.1 && laudo.fosforoP <= 60)
+    then
+        diagnostico.setClasseFosforoP("Alto");
+end
+
+rule "Diagnostico_teores_P_class_1_MA"
+    when
+        Diagnostico(classeArgila == 1, laudo.fosforoP > 18)
+    then
+        diagnostico.setClasseFosforoP("Muito Alto");
+end
+
 rule "Diagnostico_teores_P_class_2_MA"
     when
         Diagnostico(classeArgila == 2, laudo.fosforoP > 24)
@@ -41,39 +132,18 @@ rule "Diagnostico_teores_P_class_2_MA"
         diagnostico.setClasseFosforoP("Muito Alto");
 end
 
-rule "Diagnostico_teores_K_class_2_MB"
+rule "Diagnostico_teores_P_class_3_MA"
     when
-        Diagnostico(classeCTC == "Muito Baixo", laudo.potassioK <= 30)
+        Diagnostico(classeArgila == 3, laudo.fosforoP > 36)
     then
-        diagnostico.setClassePotassioK("Muito Baixo");
+        diagnostico.setClasseFosforoP("Muito Alto");
 end
 
-rule "Diagnostico_teores_K_class_2_B"
+rule "Diagnostico_teores_P_class_4_MA"
     when
-        Diagnostico(classeCTC == "Baixo", laudo.potassioK >= 31 && laudo.potassioK <= 60)
+        Diagnostico(classeArgila == 4, laudo.fosforoP > 60)
     then
-        diagnostico.setClassePotassioK("Baixo");
-end
-
-rule "Diagnostico_teores_K_class_2_M"
-    when
-        Diagnostico(classeCTC == "Médio", laudo.potassioK >= 61 && laudo.potassioK <= 90)
-    then
-        diagnostico.setClassePotassioK("Médio");
-end
-
-rule "Diagnostico_teores_K_class_2_A"
-    when
-        Diagnostico(classeCTC == "Alto", laudo.potassioK >= 91 && laudo.potassioK <= 180)
-    then
-        diagnostico.setClassePotassioK("Alto");
-end
-
-rule "Diagnostico_teores_K_class_2_MA"
-   when
-       Diagnostico(classeCTC == "Muito Alto", laudo.potassioK > 180)
-   then
-       diagnostico.setClassePotassioK("Muito Alto");
+        diagnostico.setClasseFosforoP("Muito Alto");
 end
 
 rule "Diagnostico_teores_Ca_B"
@@ -116,74 +186,4 @@ rule "Diagnostico_teores_Mg_A"
        Diagnostico(laudo.magnesioTrocavelMgTroc > 1)
    then
        diagnostico.setClasseMagnesioMg("Alto");
-end
-
-rule "Diagnostico_quantidade_P_MB"
-   when
-       Diagnostico(classeFosforoP == "Muito Baixo")
-   then
-       diagnostico.setQuantidadeFosforoP(250);
-end
-
-rule "Diagnostico_quantidade_P_B"
-   when
-       Diagnostico(classeFosforoP == "Baixo")
-   then
-       diagnostico.setQuantidadeFosforoP(170);
-end
-
-rule "Diagnostico_quantidade_P_M"
-   when
-       Diagnostico(classeFosforoP == "Médio")
-   then
-       diagnostico.setQuantidadeFosforoP(130);
-end
-
-rule "Diagnostico_quantidade_P_A"
-   when
-       Diagnostico(classeFosforoP == "Alto")
-   then
-       diagnostico.setQuantidadeFosforoP(90);
-end
-
-rule "Diagnostico_quantidade_P_MA"
-   when
-       Diagnostico(classeFosforoP == "Muito Alto")
-   then
-       diagnostico.setQuantidadeFosforoP(0);
-end
-
-rule "Diagnostico_quantidade_K_MB"
-   when
-       Diagnostico(classePotassioK == "Muito Baixo")
-   then
-       diagnostico.setQuantidadePotassioK(150);
-end
-
-rule "Diagnostico_quantidade_K_B"
-   when
-       Diagnostico(classePotassioK == "Baixo")
-   then
-       diagnostico.setQuantidadePotassioK(90);
-end
-
-rule "Diagnostico_quantidade_K_M"
-   when
-       Diagnostico(classePotassioK == "Médio")
-   then
-       diagnostico.setQuantidadePotassioK(60);
-end
-
-rule "Diagnostico_quantidade_K_A"
-   when
-       Diagnostico(classePotassioK == "Alto")
-   then
-       diagnostico.setQuantidadePotassioK(30);
-end
-
-rule "Diagnostico_quantidade_K_MA"
-   when
-       Diagnostico(classePotassioK == "Muito Alto")
-   then
-       diagnostico.setQuantidadePotassioK(0);
 end

@@ -22,7 +22,7 @@ public class AdubacaoController {
     IDiagnosticoRepository diagnosticoRepository;
 
     AdubacaoService adubacaoService = new AdubacaoService();
-    Diagnostico diagnostico = new Diagnostico();
+    Diagnostico diagnostico;
 
     @GetMapping(path = "adubacoes", produces = "application/JSON")
     public List<Diagnostico> getAll() {
@@ -36,15 +36,17 @@ public class AdubacaoController {
 
     @PostMapping(path = "adubacoes", produces = "application/JSON")
     public Diagnostico add(@RequestBody Laudo laudo) throws IOException {
-        laudo = laudoRepository.save(laudo);
+        diagnostico = new Diagnostico();
+        laudo = laudoRepository.insert(laudo);
         diagnostico.setLaudo(laudo);
         diagnostico = adubacaoService.diagnosticoIndiceSMP(laudo, diagnostico);
         diagnostico = adubacaoService.diagnosticoFertilidade(diagnostico);
-        return diagnosticoRepository.save(diagnostico);
+        return diagnosticoRepository.insert(diagnostico);
     }
 
     @PutMapping(path = "adubacoes/{id}", produces = "application/JSON")
     public Diagnostico updateById(@PathVariable String id, @Valid @RequestBody Diagnostico details) throws IOException {
+        diagnostico = new Diagnostico();
         diagnostico = diagnosticoRepository.findById(id).get();
         diagnostico = details;
         diagnostico = adubacaoService.diagnosticoIndiceSMP(diagnostico.getLaudo(), diagnostico);
@@ -54,6 +56,7 @@ public class AdubacaoController {
 
     @PatchMapping(path = "adubacoes/{id}", produces = "application/JSON")
     public Diagnostico patchById(@PathVariable String id, @Valid @RequestBody Diagnostico details) throws IOException {
+        diagnostico = new Diagnostico();
         diagnostico = diagnosticoRepository.findById(id).get();
         diagnostico = details;
         diagnostico = adubacaoService.diagnosticoIndiceSMP(diagnostico.getLaudo(), diagnostico);
@@ -63,6 +66,9 @@ public class AdubacaoController {
 
     @DeleteMapping(path = "adubacoes", produces = "application/JSON")
     public boolean delete(@RequestBody String adubacaoId) {
+        diagnostico = new Diagnostico();
+        diagnostico = diagnosticoRepository.findById(adubacaoId).get();
+        laudoRepository.deleteById(diagnostico.getLaudo().getId());
         diagnosticoRepository.deleteById(adubacaoId);
         return true;
     }

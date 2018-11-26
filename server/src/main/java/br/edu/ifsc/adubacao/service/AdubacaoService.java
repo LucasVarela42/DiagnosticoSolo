@@ -22,6 +22,9 @@ public class AdubacaoService {
         kieSession.insert(diagnostico);
         kieSession.setGlobal("diagnostico",diagnostico);
         kieSession.fireAllRules();
+        diagnostico.calcularTeorPotassioK();
+        diagnostico.calcularQuantidadePotassioK();
+        diagnostico.calcularQuantidadeFosforoP();
         return diagnostico;
     }
 }
