@@ -3,8 +3,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const baseUrl = '//localhost:8080/';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +10,7 @@ const baseUrl = '//localhost:8080/';
 export class AdubacaoService {
   private api: string;
   constructor(private http: HttpClient) {
-    this.api = `${baseUrl}api/adubacoes`;
+    this.api = `/api/adubacoes`;
    }
 
   getAll(): Observable<any> {
