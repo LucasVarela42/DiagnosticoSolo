@@ -7,7 +7,6 @@
     <mat-card-subtitle>{{diagnostico?.laudo.responsavel}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content class="card-content">
-
     <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between">
       <div fxFlex="100%">
         <mat-expansion-panel class="mat-elevation-z0" [expanded]="0">
@@ -84,16 +83,13 @@
               {{diagnostico?.laudo.relacaoMgK}}
             </div>
           </div>
-
           <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-between stretch">
             <div fxFlex="100%">
               <p>pH de referência escolhido</p>
               {{diagnostico?.laudo.pHReferencia}}
             </div>
           </div>
-
         </mat-expansion-panel>
-
         <mat-expansion-panel class="mat-elevation-z0">
           <mat-expansion-panel-header>
             <mat-panel-title>
@@ -161,7 +157,6 @@
         </mat-expansion-panel>
       </div>
     </div>
-
   </mat-card-content>
   <mat-card-actions>
     <div class="form-element" fxLayout="row">
