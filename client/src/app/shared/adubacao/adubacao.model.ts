@@ -21,7 +21,7 @@ export class Laudo {
     public relacaoMgK: number;
     public pHReferencia: number;
 
-    constructor(laudo: Laudo){
+    constructor(laudo: Laudo) {
         this.id = laudo.id;
         this.nome = laudo.nome;
         this.responsavel = laudo.responsavel;
