@@ -11,7 +11,7 @@ import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
 
-@CrossOrigin("*")
+@CrossOrigin("https://diagnostico-solo.herokuapp.com/")
 @RestController
 @RequestMapping("api")
 public class AdubacaoController {
